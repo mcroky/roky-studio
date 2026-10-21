@@ -1,11 +1,17 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+if (new URLSearchParams(window.location.search).get('sent') === '1') {
+  const status = document.getElementById('feedback-status');
+  status.textContent = '의견을 보내주셔서 감사합니다!';
+  status.classList.add('feedback-success');
+}
+
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 
 if (!reducedMotion.matches) {
   const revealItems = document.querySelectorAll(
-    '.section-heading, .project-content, .update-card, .about-layout > div'
+    '.section-heading, .project-content, .update-card, .feedback-copy, .feedback-form, .about-layout > div'
   );
 
   if ('IntersectionObserver' in window) {
