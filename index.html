@@ -9,7 +9,7 @@
     <meta property="og:description" content="로키 워킷, 용사월드, 내일은 탁구왕, 스트레스 브레이크를 만나보세요." />
     <meta property="og:type" content="website" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20261021-9" />
+    <link rel="stylesheet" href="styles.css?v=20261021-10" />
     <title>Roky Studio | 프로젝트 모아보기</title>
   </head>
   <body>
@@ -130,9 +130,10 @@
         <div class="shell">
           <div class="section-heading updates-heading">
             <div>
-              <p class="section-kicker">WHAT'S NEW <span>2026.10.21 기준</span></p>
+              <p class="section-kicker">WHAT'S NEW <span id="updates-as-of">2026.10.21 기준</span></p>
               <h2 id="updates-title">업데이트 내역</h2>
               <p>각 프로젝트의 최신 변화부터 지난 기록까지 한눈에 확인해 보세요.</p>
+              <p class="updates-sync-status" id="updates-sync-status" role="status" aria-live="polite"></p>
             </div>
           </div>
           <div class="updates-grid">
@@ -144,24 +145,24 @@
               <a href="https://mcroky.github.io/workit/updates/" target="_blank" rel="noopener noreferrer">전체 업데이트 내역 보기 <span aria-hidden="true">↗</span></a>
             </article>
             <article class="update-card update-card-hero">
-              <div class="update-meta"><span class="update-project">용사월드</span><time datetime="2026-10-20">2026.10.20</time></div>
-              <h3>터치 노트북 조작 개선 <span>v0.8.65</span></h3>
-              <p>터치 화면과 키보드가 함께 있는 노트북에서는 PC 조작을 사용합니다. 터치 전용 기기는 기존 조이스틱 조작을 유지합니다.</p>
-              <details class="update-history" open><summary>지난 업데이트 내역</summary><ol><li><time datetime="2026-10-20">v0.8.64</time><span>무기와 방어구를 +10 이후에도 골드로 계속 강화할 수 있습니다.</span></li><li><time datetime="2026-10-20">v0.8.63</time><span>아이디 가입 시 비밀번호 확인 입력란을 추가했습니다.</span></li><li><time datetime="2026-10-20">v0.8.62</time><span>이메일 없이 아이디와 비밀번호로 가입하고 로그인할 수 있습니다.</span></li></ol></details>
+              <div class="update-meta"><span class="update-project">용사월드</span><time datetime="2026-10-21">2026.10.21</time></div>
+              <h3>로키 스튜디오 바로가기 <span>v0.8.66</span></h3>
+              <p>상단 메뉴에서 로키 스튜디오로 바로 돌아갈 수 있습니다.</p>
+              <details class="update-history" open><summary>지난 업데이트 내역</summary><ol><li><time datetime="2026-10-20">v0.8.65</time><span>터치 노트북 PC 조작 지원</span></li><li><time datetime="2026-10-20">v0.8.64</time><span>장비 강화 상한 해제</span></li><li><time datetime="2026-10-20">v0.8.63</time><span>아이디 가입 입력 개선</span></li></ol></details>
               <a href="https://mcroky.github.io/hero-world-site/" target="_blank" rel="noopener noreferrer">게임에서 전체 업데이트 보기 <span aria-hidden="true">↗</span></a>
             </article>
             <article class="update-card update-card-tennis">
               <div class="update-meta"><span class="update-project">내일은 탁구왕</span><time datetime="2026-10-21">2026.10.21</time></div>
               <h3>직접 치는 실전 경기</h3>
-              <p>자동 이동과 타이밍 보정은 자유 연습에서만 적용됩니다. 실전 경기에서는 직접 스윙해야 공을 받아낼 수 있고, 전체화면 안내와 업데이트 내역 창이 추가됐습니다.</p>
+              <p>실전 경기에서는 직접 스윙해야 공을 받아낼 수 있습니다. PC 스매시는 E키로 바뀌었고 라이징 스매시 필살기와 로키 스튜디오 바로가기가 추가됐습니다.</p>
               <details class="update-history" open><summary>지난 업데이트 내역</summary><ol><li><time datetime="2026-10-20">10.20</time><span>PC 스매시를 Shift 단독 입력으로 변경하고, 월드맵 기본 확대율을 65%로 조정했습니다.</span></li><li><time datetime="2026-10-20">10.20</time><span>기본 시점을 라켓 시점으로 바꾸고, 경기 화면과 전체화면 조작을 개선했습니다.</span></li></ol></details>
               <a href="https://mcroky.github.io/tomorrow-table-tennis/" target="_blank" rel="noopener noreferrer">게임에서 전체 업데이트 보기 <span aria-hidden="true">↗</span></a>
             </article>
             <article class="update-card update-card-stress">
               <div class="update-meta"><span class="update-project">스트레스 브레이크</span><time datetime="2026-10-21">2026.10.21</time></div>
-              <h3>아이템 상점 50종으로 확대 <span>v1.4.0</span></h3>
-              <p>아이템마다 구매 가격과 액션 포인트 보너스가 달라졌습니다. 색상별 타격 연출과 도구 유형별 효과음도 추가됐습니다.</p>
-              <details class="update-history"><summary>지난 업데이트 내역</summary><ol><li><time datetime="2026-10-21">v1.3.0</time><span>배경음과 장면·도구별 효과음을 추가했습니다.</span></li><li><time datetime="2026-10-21">v1.2.0</time><span>로그인 없이 플레이하고 기록을 브라우저에 자동 저장합니다.</span></li></ol></details>
+              <h3>완전 파손 연출과 자동 복구 <span>v1.5.2</span></h3>
+              <p>완전 파손 연출과 자동 복구 시점을 맞추고 새 대상 등장 알림을 추가했습니다.</p>
+              <details class="update-history" open><summary>지난 업데이트 내역</summary><ol><li><time datetime="2026-10-21">v1.5.1</time><span>새 대상 자동 복구와 중복 타격 방지</span></li><li><time datetime="2026-10-21">v1.5.0</time><span>대상별 파손 단계와 연출 확대</span></li><li><time datetime="2026-10-21">v1.4.1</time><span>로키 스튜디오 복귀 버튼 추가</span></li></ol></details>
               <a href="https://mcroky.github.io/stress-break-3d/" target="_blank" rel="noopener noreferrer">게임에서 전체 업데이트 보기 <span aria-hidden="true">↗</span></a>
             </article>
           </div>
@@ -200,6 +201,7 @@
     </main>
 
     <footer class="site-footer"><div class="shell footer-inner"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">R</span><span>Roky <strong>Studio</strong></span></a><span>© <span id="year">2026</span> Roky Studio</span><a href="#top">맨 위로 ↑</a></div></footer>
+    <script type="module" src="updates.mjs?v=20261021-1"></script>
     <script src="effects.js?v=20261021-2" defer></script>
   </body>
 </html>
