@@ -13,6 +13,7 @@
 - `index.html`의 `.project-grid` 안에 있는 `article.project-card`를 복사해 제목, 설명, 특징, 링크를 바꿉니다.
 - `styles.css`에서 새 카드의 색상과 그림을 조정합니다.
 - CSS를 수정할 때는 `index.html`의 `styles.css?v=...` 버전도 바꿔 브라우저가 새 스타일을 받게 합니다.
+- 메인 궤도 회전, 미리보기 카드 부유, 마우스 시차, 프로젝트 카드 기울기와 빛, 스크롤 등장 효과는 `styles.css`와 `effects.js`에 있습니다. 스크립트를 수정할 때는 `index.html`의 `effects.js?v=...` 버전도 갱신합니다. 움직임 줄이기 설정에서는 효과가 꺼집니다.
 - 프로젝트 썸네일은 `assets/`에 넣고 카드의 `img.project-thumbnail` 경로와 설명을 바꿉니다. 이미지 전체가 보이도록 표시됩니다.
 - 공개 주소가 준비되면 로키 워크킷의 `span.project-link-disabled`를 다른 카드처럼 `a.project-link`로 바꾸고 `href`에 실제 주소를 넣습니다. 상태 문구도 `공개 플레이`로 수정합니다.
 - 상단 프로젝트 수와 `THE COLLECTION`의 번호를 함께 갱신합니다.

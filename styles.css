@@ -19,3 +19,32 @@
 .screenshot-art{display:grid;place-items:center}.hero-screenshot{background:#18283d}.tennis-screenshot{background:#c8e2dd}.project-thumbnail{display:block;width:100%;height:100%;object-fit:contain}
 .update-history{margin:-7px 0 22px;padding-top:14px;border-top:1px solid #e8edf4}.update-history summary{display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none;cursor:pointer;color:#526184;font-size:11px;font-weight:800}.update-history summary::-webkit-details-marker{display:none}.update-history summary:after{content:'+';font-size:17px;font-weight:500;line-height:1}.update-history[open] summary:after{content:'−'}.update-history summary:focus-visible{outline:3px solid #83aaff;outline-offset:3px}.update-history ol{display:grid;gap:11px;margin:17px 0 0;padding:0;list-style:none}.update-history li{display:grid;grid-template-columns:54px 1fr;gap:8px;color:#68758c;font-size:11px;line-height:1.65;word-break:keep-all}.update-history time{color:#334cc3;font-size:10px;font-weight:800;white-space:nowrap}
 html,body{max-width:100%;overflow-x:clip}
+
+/* 1. The two orbit paths slowly turn, with a small travelling star. */
+.orbit{animation:orbit-turn 24s linear infinite}.orbit-two{animation-duration:18s;animation-direction:reverse}
+.orbit:after{content:'✦';position:absolute;top:8%;left:13%;color:#5265eb;font-size:18px;text-shadow:0 0 15px #8da0ff}
+@keyframes orbit-turn{to{transform:rotate(360deg)}}
+
+/* 2. The three project previews float at different rhythms. */
+.card-game{animation:float-game 5.2s ease-in-out infinite}.card-sport{animation:float-sport 4.6s ease-in-out -1.3s infinite}.card-tool{animation:float-tool 5.7s ease-in-out -.6s infinite}
+@keyframes float-game{50%{transform:translateY(-13px) rotate(-11deg)}}
+@keyframes float-sport{50%{transform:translateY(12px) rotate(9deg)}}
+@keyframes float-tool{50%{transform:translateY(-10px) rotate(-4deg)}}
+
+/* 3. The illustration follows the pointer without changing its layout. */
+.hero-art{translate:var(--art-x,0px) var(--art-y,0px);transition:translate .25s ease-out}
+
+/* 4. Project cards tilt and catch a soft light under the pointer. */
+.project-card{--lift:0px;transition:transform .22s ease-out,box-shadow .25s}
+.project-card,.project-card:hover{transform:perspective(1000px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateY(var(--lift))}
+.project-card:hover{--lift:-7px}
+.project-card:after{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;background:radial-gradient(420px circle at var(--shine-x,50%) var(--shine-y,50%),rgba(255,255,255,.34),transparent 63%);opacity:var(--shine-opacity,0);transition:opacity .25s}
+.project-card{position:relative}
+.project-content{position:relative;z-index:4}
+
+/* 5. Sections arrive in a short, staggered sequence as they enter view. */
+.motion-ready .reveal-item{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--reveal-delay,0ms)}
+.motion-ready .reveal-item.is-visible{opacity:1;transform:translateY(0)}
+
+@media(hover:none),(pointer:coarse){.project-card,.project-card:hover{--lift:0px;transform:none}.project-card:after{display:none}.hero-art{translate:none}}
+@media(prefers-reduced-motion:reduce){.orbit,.card-game,.card-sport,.card-tool{animation:none!important}.hero-art{translate:none;transition:none}.project-card,.project-card:hover{--lift:0px;transform:none}.project-card:after{display:none}.motion-ready .reveal-item{opacity:1;transform:none;transition:none}}
