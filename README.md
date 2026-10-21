@@ -4,9 +4,9 @@
 
 ## GitHub Pages 배포
 
-1. GitHub에 공개 저장소를 만들고 이 폴더의 파일을 `main` 브랜치에 올립니다.
-2. 저장소 **Settings → Pages → Build and deployment → Source**에서 **GitHub Actions**를 선택합니다.
-3. `main`에 push하면 `.github/workflows/pages.yml`이 홈페이지를 배포합니다. 주소는 Pages 설정 화면이나 Actions 실행 결과에서 확인할 수 있습니다.
+공개 주소: <https://mcroky.github.io/roky-studio/>
+
+이 폴더는 `mcroky/roky-studio` 저장소의 `main` 브랜치를 추적합니다. 변경 사항을 `main`에 push하면 `.github/workflows/pages.yml`이 홈페이지를 자동 배포합니다. GitHub Pages의 배포 소스는 **GitHub Actions**로 설정되어 있습니다.
 
 ## 프로젝트 추가·수정
 
