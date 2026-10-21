@@ -17,7 +17,7 @@
 - 프로젝트 썸네일은 `assets/`에 넣고 카드의 `img.project-thumbnail` 경로와 설명을 바꿉니다. 이미지 전체가 보이도록 표시됩니다.
 - 프로젝트 공개 주소가 바뀌면 해당 카드의 `a.project-link`와 업데이트 카드의 링크를 함께 수정합니다.
 - 상단 프로젝트 수와 `THE COLLECTION`의 번호를 함께 갱신합니다.
-- 새 버전이나 기능이 공개되면 `index.html`의 `#updates` 카드에서 날짜, 제목, 설명, `details.update-history`의 지난 내역을 갱신합니다. `WHAT'S NEW` 기준일도 함께 바꿉니다. 용사월드와 내일은 탁구왕의 공개 게임에 있는 **업데이트 내역**을 확인한 뒤 방문자가 이해하기 쉬운 문장으로 적습니다.
+- 새 버전이나 기능이 공개되면 `index.html`의 `#updates` 카드에서 날짜, 제목, 설명, `details.update-history`의 지난 내역을 갱신합니다. `WHAT'S NEW` 기준일도 함께 바꿉니다. 로키 워킷은 <https://mcroky.github.io/workit/updates/>의 공식 기록을, 게임은 각 공개 게임의 업데이트 내역을 확인한 뒤 방문자가 이해하기 쉬운 문장으로 적습니다.
 - 의견 폼은 FormSubmit의 인증된 비공개 주소 별칭으로 전송합니다. 실제 수신 이메일 주소는 공개 저장소와 페이지 소스에 넣지 않습니다. 수신처를 바꾸려면 새 주소를 FormSubmit에서 인증하고 `#feedback-form`의 `action` 별칭만 교체합니다. 전송 후에는 `?sent=1#feedback`으로 돌아와 완료 안내를 보여 줍니다.
 
 네 프로젝트 모두 공개 주소로 연결합니다. 로키 워킷 주소는 <https://mcroky.github.io/workit/>입니다.
