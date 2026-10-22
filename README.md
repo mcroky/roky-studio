@@ -22,7 +22,7 @@
 
 네 프로젝트 모두 공개 주소로 연결합니다. 로키 워킷 주소는 <https://mcroky.github.io/workit/>입니다.
 
-소개 영역에는 공개 X 계정 <https://x.com/loki60542>와 스레드 계정 <https://www.threads.com/@loki60542>을 연결합니다.
+상단 메뉴에는 공개 X 계정 <https://x.com/loki60542>와 스레드 계정 <https://www.threads.com/@loki60542>을 연결합니다. 소개 영역의 스레드 버튼 자리에는 Cloudflare 방문 통계 대시보드 링크를 둡니다.
 
 ## 방문 통계
 
