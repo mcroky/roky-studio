@@ -22,6 +22,8 @@
 
 네 프로젝트 모두 공개 주소로 연결합니다. 로키 워킷 주소는 <https://mcroky.github.io/workit/>입니다.
 
+소개 영역에는 공개 X 계정 <https://x.com/loki60542>와 스레드 계정 <https://www.threads.com/@loki60542>을 연결합니다.
+
 ## 개인 작업소
 
 공개 홈페이지에는 개인 작업 링크를 넣지 않습니다. 상단의 **내 작업소** 버튼은 `mcroky/roky-studio-workspaces` 비공개 GitHub 저장소로 이동하며, 작업소의 실제 URL은 그 저장소의 `README.md`에만 있습니다. 새 개인 링크를 추가할 때도 비공개 저장소만 수정합니다. GitHub 로그인과 저장소 접근 권한은 GitHub가 확인합니다.
