@@ -24,6 +24,10 @@
 
 소개 영역에는 공개 X 계정 <https://x.com/loki60542>와 스레드 계정 <https://www.threads.com/@loki60542>을 연결합니다.
 
+## 방문 통계
+
+`index.html` 끝에 Cloudflare Web Analytics 스니펫을 설치했습니다. 이 파일에 삽입된 공개 사이트 토큰은 방문 측정용이며, 통계 조회 권한이나 계정 비밀번호가 아닙니다. 일일 방문 수는 Cloudflare 계정의 비공개 Web Analytics 대시보드에서 확인합니다. 스니펫은 Roky Studio 페이지에만 넣어 다른 `mcroky.github.io` 프로젝트 방문을 함께 세지 않습니다.
+
 ## 개인 작업소
 
 공개 홈페이지에는 개인 작업 링크를 넣지 않습니다. 상단의 **내 작업소** 버튼은 `mcroky/roky-studio-workspaces` 비공개 GitHub 저장소로 이동하며, 작업소의 실제 URL은 그 저장소의 `README.md`에만 있습니다. 새 개인 링크를 추가할 때도 비공개 저장소만 수정합니다. GitHub 로그인과 저장소 접근 권한은 GitHub가 확인합니다.
