@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>쉬기 좋은 곳 찾기 · 실습</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <p class="eyebrow">중3 스튜디오 · 첫 배포 실습</p>
+        <h1>어떤 쉼터가 나에게 맞을까?</h1>
+        <p>중요한 조건을 골라 가상의 장소 A, B, C를 비교해 보세요.</p>
+      </header>
+
+      <section class="panel" aria-labelledby="choices-title">
+        <h2 id="choices-title">중요한 조건</h2>
+        <div class="choices">
+          <label><input type="checkbox" value="shade" /> 그늘</label>
+          <label><input type="checkbox" value="seat" /> 앉을 곳</label>
+          <label><input type="checkbox" value="rain" /> 비를 피할 곳</label>
+        </div>
+      </section>
+
+      <section aria-labelledby="results-title">
+        <h2 id="results-title">비교 결과</h2>
+        <p id="summary" role="status" aria-live="polite">조건을 하나 이상 선택해 주세요.</p>
+        <div id="results" class="results"></div>
+      </section>
+
+      <footer>이 사이트의 장소와 조건은 실습용 가상 자료입니다. 실제 장소의 안전성이나 쾌적함을 평가하지 않습니다.</footer>
+    </main>
+  </body>
+</html>

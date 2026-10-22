@@ -1,0 +1,19 @@
+:root { color-scheme: light; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #16342d; background: #f3f7f3; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.container { width: min(100% - 2rem, 48rem); margin: 0 auto; padding: 3rem 0; }
+.eyebrow { color: #39715d; font-weight: 700; letter-spacing: .04em; }
+h1 { margin: .2rem 0 .8rem; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; }
+h2 { margin: 0 0 1rem; font-size: 1.3rem; }
+p { line-height: 1.6; }
+.panel, .card { background: white; border: 1px solid #d0ded4; border-radius: 1rem; box-shadow: 0 .25rem .8rem #16342d0d; }
+.panel { margin: 2rem 0; padding: 1.25rem; }
+.choices { display: flex; flex-wrap: wrap; gap: .75rem; }
+.choices label { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; padding: .55rem .9rem; background: #edf5ef; border-radius: .65rem; cursor: pointer; }
+input { width: 1.15rem; height: 1.15rem; accent-color: #246a4c; }
+.results { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1rem; margin-top: 1rem; }
+.card { padding: 1.2rem; }
+.card h3 { margin: 0 0 .5rem; }
+.score { font-size: 1.8rem; font-weight: 800; color: #246a4c; }
+.features { margin: .8rem 0 0; padding-left: 1.2rem; line-height: 1.7; }
+footer { margin-top: 3rem; color: #52665d; font-size: .9rem; line-height: 1.5; }
