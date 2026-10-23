@@ -180,9 +180,9 @@ async function syncUpdates() {
     renderCard(name, releases);
     return releases[0].date;
   }));
-  const dates = results.filter(result => result.status === 'fulfilled').map(result => result.value);
+  const dates = [...document.querySelectorAll('.update-card .update-meta time')].map(time => time.dateTime).filter(Boolean);
   if (dates.length) document.getElementById('updates-as-of').textContent = `${dates.sort().at(-1).replaceAll('-', '.')} 기준`;
-  status.textContent = dates.length === results.length ? '각 프로젝트의 최신 업데이트와 연동됨' : '일부 프로젝트의 최신 기록을 불러오지 못해 기존 내역을 표시합니다.';
+  status.textContent = dates.length === results.length ? '연결된 프로젝트의 최신 내역을 확인했습니다.' : '일부 프로젝트의 최신 기록을 불러오지 못해 기존 내역을 표시합니다.';
   for (const result of results) if (result.status === 'rejected') console.warn('Update sync failed:', result.reason);
 }
 
