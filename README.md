@@ -10,17 +10,17 @@
 
 ## 프로젝트 추가·수정
 
-- `index.html`의 `.project-grid` 안에 있는 `article.project-card`를 복사해 제목, 설명, 특징, 링크를 바꿉니다.
+- `index.html`의 `.project-grid` 안에 있는 `article.project-card`를 복사해 제목, 설명, 특징, 링크와 `data-category`를 바꿉니다. `projects.js`가 카드의 분류 버튼, 검색 결과 수, 상단 프로젝트 수를 자동으로 갱신합니다. 화면이 넓고 표시할 카드가 5개 이상이면 3열로 배치합니다.
 - `styles.css`에서 새 카드의 색상과 그림을 조정합니다.
 - CSS를 수정할 때는 `index.html`의 `styles.css?v=...` 버전도 바꿔 브라우저가 새 스타일을 받게 합니다.
 - 메인 궤도 회전, 미리보기 카드 부유, 마우스 시차, 프로젝트 카드 기울기와 빛, 스크롤 등장 효과는 `styles.css`와 `effects.js`에 있습니다. 스크립트를 수정할 때는 `index.html`의 `effects.js?v=...` 버전도 갱신합니다. 움직임 줄이기 설정에서는 효과가 꺼집니다.
 - 프로젝트 썸네일은 `assets/`에 넣고 카드의 `img.project-thumbnail` 경로와 설명을 바꿉니다. 이미지 전체가 보이도록 표시됩니다.
 - 프로젝트 공개 주소가 바뀌면 해당 카드의 `a.project-link`와 업데이트 카드의 링크를 함께 수정합니다.
-- 상단 프로젝트 수와 `THE COLLECTION`의 번호를 함께 갱신합니다.
+- 프로젝트 수와 `THE COLLECTION` 번호는 `projects.js`가 카드 개수로 계산하므로 수동으로 바꿀 필요가 없습니다.
 - 홈페이지를 열면 `updates.mjs`가 네 프로젝트의 공개 업데이트 자료를 읽고 `#updates` 카드의 최신 내용·지난 내역·기준일을 자동 갱신합니다. 워킷은 공개 업데이트 페이지, 용사월드는 공개 빌드의 릴리스 데이터, 탁구왕은 `club-updates.js`, 스트레스 브레이크는 `app.js`의 변경 기록을 사용합니다. 원본을 읽지 못하면 `index.html`에 적힌 마지막 확인 내용을 표시합니다. 원본 형식이 바뀌면 `updates.mjs`의 파서를 수정하고 `node scripts/check-updates.mjs`로 확인합니다.
 - 의견 폼은 FormSubmit의 인증된 비공개 주소 별칭으로 전송합니다. 실제 수신 이메일 주소는 공개 저장소와 페이지 소스에 넣지 않습니다. 수신처를 바꾸려면 새 주소를 FormSubmit에서 인증하고 `#feedback-form`의 `action` 별칭만 교체합니다. 전송 후에는 `?sent=1#feedback`으로 돌아와 완료 안내를 보여 줍니다.
 
-네 프로젝트 모두 공개 주소로 연결합니다. 로키 워킷 주소는 <https://mcroky.github.io/workit/>입니다.
+다섯 프로젝트 모두 공개 주소로 연결합니다. 로키 워킷 주소는 <https://mcroky.github.io/workit/>입니다.
 
 상단 메뉴에는 공개 X 계정 <https://x.com/loki60542>와 스레드 계정 <https://www.threads.com/@loki60542>을 연결합니다. 소개 영역의 스레드 버튼 자리에는 Cloudflare 방문 통계 대시보드 링크를 둡니다.
 

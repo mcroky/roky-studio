@@ -9,7 +9,7 @@
     <meta property="og:description" content="로키 워킷, 용사월드, 내일은 탁구왕, 스트레스 브레이크를 만나보세요." />
     <meta property="og:type" content="website" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20261023-1" />
+    <link rel="stylesheet" href="styles.css?v=20261023-3" />
     <title>Roky Studio | 프로젝트 모아보기</title>
   </head>
   <body>
@@ -43,7 +43,7 @@
           <div class="hero-actions">
             <a class="button button-primary" href="#projects">프로젝트 살펴보기 <span aria-hidden="true">↘</span></a>
             <a class="hero-secondary" href="#updates">업데이트 내역 <span aria-hidden="true">↗</span></a>
-            <span class="hero-count"><strong>05</strong> PROJECTS & COUNTING</span>
+            <span class="hero-count"><strong id="hero-project-count">05</strong> PROJECTS & COUNTING</span>
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -61,15 +61,21 @@
         <div class="shell">
           <div class="section-heading">
             <div>
-              <p class="section-kicker">THE COLLECTION <span>01 — 05</span></p>
+              <p class="section-kicker">THE COLLECTION <span id="project-range">01 — 05</span></p>
               <h2 id="projects-title">Roky Studio의 프로젝트</h2>
               <p>마음에 드는 프로젝트를 골라 자세히 보고 바로 시작해 보세요.</p>
             </div>
             <span class="section-side-note">새로운 작업도 이곳에 계속 추가됩니다.</span>
           </div>
 
+          <div class="project-controls" id="project-controls" hidden>
+            <div class="project-filters" id="project-filters" role="group" aria-label="프로젝트 분류"></div>
+            <label class="project-search"><span class="project-search-icon" aria-hidden="true">⌕</span><span class="sr-only">프로젝트 검색</span><input id="project-search" type="search" placeholder="프로젝트 검색" autocomplete="off" /></label>
+          </div>
+          <p class="project-result-count" id="project-result-count" role="status" aria-live="polite" hidden></p>
+
           <div class="project-grid">
-            <article class="project-card project-workkit">
+            <article class="project-card project-workkit" data-category="도구">
               <div class="project-art workkit-art" aria-hidden="true">
                 <span class="art-index">01 / PRODUCTIVITY</span>
                 <div class="workkit-window"><div class="window-bar"><i></i><i></i><i></i></div><div class="window-body"><span class="window-side"></span><span class="window-tile"></span><span class="window-tile"></span><span class="window-tile"></span></div></div>
@@ -84,7 +90,7 @@
               </div>
             </article>
 
-            <article class="project-card project-hero">
+            <article class="project-card project-hero" data-category="게임">
               <div class="project-art screenshot-art hero-screenshot">
                 <img class="project-thumbnail" src="assets/hero-world.png" alt="용사월드의 직업 선택과 모험 화면" width="1180" height="599" loading="lazy" />
               </div>
@@ -97,7 +103,7 @@
               </div>
             </article>
 
-            <article class="project-card project-tennis">
+            <article class="project-card project-tennis" data-category="게임">
               <div class="project-art screenshot-art tennis-screenshot">
                 <img class="project-thumbnail" src="assets/tomorrow-table-tennis.png" alt="내일은 탁구왕의 40개 거점 월드맵" width="1180" height="574" loading="lazy" />
               </div>
@@ -110,7 +116,7 @@
               </div>
             </article>
 
-            <article class="project-card project-stress">
+            <article class="project-card project-stress" data-category="게임">
               <div class="project-art stress-art" aria-hidden="true">
                 <span class="stress-orbit stress-orbit-one"></span><span class="stress-orbit stress-orbit-two"></span>
                 <span class="stress-spark stress-spark-one">✦</span><span class="stress-spark stress-spark-two">✳</span>
@@ -126,7 +132,7 @@
               </div>
             </article>
 
-            <article class="project-card project-walk">
+            <article class="project-card project-walk" data-category="지도">
               <div class="project-art screenshot-art walk-screenshot">
                 <img class="project-thumbnail" src="assets/our-neighborhood-walks.png" alt="안성시 보행로와 쉼터를 보여주는 우리동네산책길 지도 화면" width="1265" height="920" loading="lazy" />
               </div>
@@ -140,6 +146,7 @@
             </article>
 
           </div>
+          <p class="project-empty" id="project-empty" hidden>해당하는 프로젝트가 없습니다. 다른 검색어나 분류를 선택해 보세요.</p>
         </div>
       </section>
 
@@ -225,6 +232,7 @@
 
     <footer class="site-footer"><div class="shell footer-inner"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">R</span><span>Roky <strong>Studio</strong></span></a><span>© <span id="year">2026</span> Roky Studio</span><a href="#top">맨 위로 ↑</a></div></footer>
     <script type="module" src="updates.mjs?v=20261023-1"></script>
+    <script src="projects.js?v=20261023-1" defer></script>
     <script src="effects.js?v=20261021-2" defer></script>
     <!-- Cloudflare Web Analytics: this public site token only records visits to Roky Studio. -->
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"09826592d2774b24b31f74a1ad6bc33b"}'></script>
