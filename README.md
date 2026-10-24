@@ -8,7 +8,7 @@
 
 모든 프로젝트는 향후 Google Play 출시를 목표로 합니다. 기획·구조 설계부터 [Google Play 출시 준비 기준](docs/GOOGLE_PLAY_READINESS.md)을 함께 적용합니다. Android 빌드, 터치·뒤로가기, 저장 호환성, 개인정보와 배포판별 결제 정책을 확인합니다.
 
-웹의 **카카오뱅크 이체** 버튼은 [공통 계좌 안내](https://mcroky.github.io/roky-studio/#bank-transfer)로 연결합니다. 계좌 정보와 복사 기능은 홈페이지에서 관리합니다. Google Play 배포판의 표시는 별도 정책 검토와 채널 설정을 거칩니다.
+웹의 **더 좋은 앱을 위한 후원** 버튼은 [공식 Buy Me a Coffee 페이지](https://buymeacoffee.com/roky.studio)로 연결합니다. 홈페이지에는 자율 후원의 목적을 안내합니다. Google Play 배포판의 표시는 별도 정책 검토와 채널 설정을 거칩니다.
 
 기존 프로젝트의 적용 위치·빌드·배포 결과는 [공통 이체 버튼 적용 기록](docs/BANK_TRANSFER_ROLLOUT_2026-10-24.md)에 있습니다.
 
@@ -37,6 +37,10 @@
 다섯 프로젝트 모두 공개 주소로 연결합니다. 로키 워킷 주소는 <https://mcroky.github.io/workit/>입니다.
 
 상단 메뉴에는 공개 X 계정 <https://x.com/loki60542>와 스레드 계정 <https://www.threads.com/@loki60542>을 연결합니다. 소개 영역의 스레드 버튼 자리에는 Cloudflare 방문 통계 대시보드 링크를 둡니다.
+
+## 로키스튜디오 후원
+
+공식 후원 페이지는 https://buymeacoffee.com/roky.studio 입니다. 유도 문구는 `더 좋은 앱을 위한 후원` / `후원하기`로 사용합니다. 홈페이지에는 후원 목적과 자율 선택 안내를 제공하고, 기존 `#bank-transfer` 주소도 새 후원 안내로 이어집니다. 계좌번호와 개인 이름은 홈페이지에 표시하지 않습니다.
 
 ## 방문 통계
 

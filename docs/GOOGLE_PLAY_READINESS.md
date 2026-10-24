@@ -46,9 +46,9 @@
 - 가입 기능이 있으면 **앱 내부와 외부 웹에서 계정 삭제 요청**을 제공한다. 인증 계정·연결 데이터·보관 의무 항목을 함께 다룬다. 로그아웃·앱 삭제를 계정 삭제로 안내하지 않는다. [계정 삭제 요구사항](https://support.google.com/googleplay/android-developer/answer/13327111?hl=en)
 - 대상 연령·아동 대상 여부와 광고·동의 방식을 정한다. 비밀번호·서명 키·서버 비밀값은 앱 번들이나 공개 저장소에 넣지 않는다.
 
-## 6. 결제·카카오뱅크 버튼의 채널 구분
+## 6. 결제·후원 버튼의 채널 구분
 
-- 웹판의 이체 안내는 `https://mcroky.github.io/roky-studio/#bank-transfer`를 사용한다. 송금 확인이나 게임 보상 지급 기능으로 표시하지 않는다.
+- 웹판의 후원 버튼은 `https://buymeacoffee.com/roky.studio`를 사용하고 유도 문구도 `로키스튜디오 후원`으로 표시한다. 기존 `#bank-transfer` 링크는 홈페이지 후원 안내에서 계속 지원한다. 후원을 게임 보상 지급 기능으로 연결하지 않는다.
 - Play 배포 앱의 디지털 상품·유료 기능·광고 제거·아이템·구독은 현행 Play 정책에 맞는 결제를 설계한다. 외부 웹페이지를 거치는 구매 유도도 검토한다. [Payments 정책](https://support.google.com/googleplay/android-developer/answer/9858738?hl=en)
 - Google FAQ에는 **전액이 창작자에게 가고 디지털 콘텐츠·서비스 이용 권리를 주지 않는 팁·지원금**을 P2P로 취급하는 조건이 있다. 배지·아이템·기능 해금을 대가로 주면서 이 예외에 해당한다고 가정하지 않는다. 국가·프로그램별 조건도 확인한다. [공식 결제 FAQ](https://support.google.com/googleplay/android-developer/answer/10281818?hl=en)
 - `web`·`google-play` 등의 배포 채널 설정을 둔다. Play의 외부 이체 버튼은 앱별 정책 확인 후 노출하고, 미확정이면 숨긴다. 도움말·홈페이지 링크에서 금지된 외부 결제로 이어지는 경로도 점검한다.
@@ -72,6 +72,6 @@
 
 ## 9. 다음 개발 요청에 붙일 문장
 
-> 향후 Google Play 출시를 전제로 개발해 주세요. PROJECT_BASELINE.md, GAMEDEV_SKILLS_GUIDE.md, GOOGLE_PLAY_READINESS.md를 먼저 읽고 Android 빌드·조작·저장·업데이트·권한·개인정보·결제·실기기 검증을 초기 설계에 포함해 주세요. 웹판 카카오뱅크 버튼은 공통 안내로 연결하고, Play 배포판은 정책 확인 결과에 따라 별도 제어해 주세요.
+> 향후 Google Play 출시를 전제로 개발해 주세요. PROJECT_BASELINE.md, GAMEDEV_SKILLS_GUIDE.md, GOOGLE_PLAY_READINESS.md를 먼저 읽고 Android 빌드·조작·저장·업데이트·권한·개인정보·결제·실기기 검증을 초기 설계에 포함해 주세요. 웹판 후원 버튼은 공통 Buy Me a Coffee 페이지로 연결하고, Play 배포판은 정책 확인 결과에 따라 별도 제어해 주세요.
 
 실제 경로: `E:/개인프로젝트/Roky Studio/docs/GOOGLE_PLAY_READINESS.md`.

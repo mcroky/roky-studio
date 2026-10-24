@@ -13,7 +13,7 @@
 - **접근성과 작은 화면:** 링크와 버튼의 목적이 글자로 드러나게 하고, 키보드로 접근할 수 있게 하며, 모바일에서도 공통 메뉴가 가려지지 않게 한다.
 
 - **운영자 소셜 계정:** 모든 앱에 X(`https://x.com/loki60542`)와 Threads(`https://www.threads.com/@loki60542`) 바로가기 버튼을 함께 둔다. 구현 세부 기준은 8절을 따른다.
-- **카카오뱅크 이체:** 공통 메뉴에 카카오뱅크 이체 안내 버튼을 둔다. 계좌 정보는 홈페이지 한 곳에서 관리하며, Google Play 배포판은 결제 정책을 확인해 노출을 결정한다. 9절을 따른다.
+- **로키스튜디오 후원:** 웹 공통 메뉴에 `더 좋은 앱을 위한 후원` 버튼을 두고 `https://buymeacoffee.com/roky.studio`로 연결한다. Google Play 배포판은 결제 정책을 확인해 노출을 결정한다. 9절을 따른다.
 - **Google Play 출시 전제:** 모든 프로젝트는 향후 Google Play에서 Android 앱으로 출시할 계획을 기본 전제로 설계한다. 착수할 때부터 Android 빌드 경로·기기 조작·저장·정책을 검토한다. 10절과 [출시 준비 기준](docs/GOOGLE_PLAY_READINESS.md)을 따른다.
 
 ## 2. 새 프로젝트 시작 체크리스트
@@ -29,7 +29,7 @@
 7. GitHub Pages 등 실제 배포 주소에서 복귀 링크, 의견 동선, 업데이트 내역, 모바일 화면을 확인한다.
 8. 공통 헤더 또는 푸터에 X·Threads 버튼을 함께 넣고, 모바일과 배포 주소에서 목적지를 확인한다.
 9. Roky Studio 홈페이지의 프로젝트 카드·썸네일·공개 링크·프로젝트 수·업데이트 카드·의견 폼 선택지를 갱신한다.
-10. 웹판 공통 메뉴에 `카카오뱅크 이체` 버튼을 넣어 `https://mcroky.github.io/roky-studio/#bank-transfer`로 연결한다. Play 배포판은 9절의 정책 조건을 적용한다.
+10. 웹판 공통 메뉴에 `더 좋은 앱을 위한 후원` 버튼을 넣어 `https://buymeacoffee.com/roky.studio`로 연결한다. Play 배포판은 9절의 정책 조건을 적용한다.
 11. Android 배포 경로와 앱 식별자, 뒤로가기·앱 전환·저장 복원, 개인정보·권한·결제 방식을 개발 개요에 기록하고 초기 시제품부터 Android 기기에서 검증한다.
 
 ## 3. 프로젝트 내부 의견 폼을 만들 때
@@ -58,7 +58,7 @@
 
 ## 5. 새 프로젝트를 요청할 때 복사할 문장
 
-> 이 프로젝트는 향후 Google Play에서 Android 앱으로 출시할 Roky Studio 프로젝트입니다. 개발 전에 `PROJECT_BASELINE.md`, `docs/GAMEDEV_SKILLS_GUIDE.md`, `docs/GOOGLE_PLAY_READINESS.md`를 읽고 관련 기준을 적용해 주세요. 현재 엔진·버전을 유지하며 Android 빌드 경로, 기기 조작·저장 복원·권한·개인정보·결제 정책을 처음부터 설계해 주세요. 새 프로젝트 루트 `AGENTS.md`에도 실제 문서 경로를 적어 주세요. 공통 메뉴에 Roky Studio 복귀, X·Threads, 개선 의견, 업데이트 내역, 웹판 카카오뱅크 이체 안내를 포함해 주세요. Play 배포판의 외부 이체 버튼은 정책 검토 후 배포 채널 설정으로 제어해 주세요. 공개 시 홈페이지의 프로젝트·업데이트·의견 선택지도 갱신해 주세요.
+> 이 프로젝트는 향후 Google Play에서 Android 앱으로 출시할 Roky Studio 프로젝트입니다. 개발 전에 `PROJECT_BASELINE.md`, `docs/GAMEDEV_SKILLS_GUIDE.md`, `docs/GOOGLE_PLAY_READINESS.md`를 읽고 관련 기준을 적용해 주세요. 현재 엔진·버전을 유지하며 Android 빌드 경로, 기기 조작·저장 복원·권한·개인정보·결제 정책을 처음부터 설계해 주세요. 새 프로젝트 루트 `AGENTS.md`에도 실제 문서 경로를 적어 주세요. 공통 메뉴에 Roky Studio 복귀, X·Threads, 개선 의견, 업데이트 내역, 웹판 로키스튜디오 후원 안내를 포함해 주세요. Play 배포판의 외부 이체 버튼은 정책 검토 후 배포 채널 설정으로 제어해 주세요. 공개 시 홈페이지의 프로젝트·업데이트·의견 선택지도 갱신해 주세요.
 
 ## 6. Supabase를 사용하는 프로젝트
 
@@ -121,14 +121,13 @@ Supabase Auth를 사용하는 새 로그인 시스템은 서비스 화면에서 
 <nav class="roky-social" aria-label="Roky Studio 소셜 계정"><a class="roky-social-link" href="https://x.com/loki60542" target="_blank" rel="me noopener noreferrer" aria-label="X @loki60542 새 탭에서 열기">X <span aria-hidden="true">↗</span></a><a class="roky-social-link" href="https://www.threads.com/@loki60542" target="_blank" rel="me noopener noreferrer" aria-label="Threads @loki60542 새 탭에서 열기">Threads <span aria-hidden="true">↗</span></a></nav>
 ```
 
-## 9. 카카오뱅크 이체 안내
+## 9. 로키스튜디오 후원 안내
 
-- 공통 웹 버튼: **카카오뱅크 이체**. 연결 주소: `https://mcroky.github.io/roky-studio/#bank-transfer`.
-- 사용자가 2026-10-24 지정한 수취 계좌: **카카오뱅크 · 3333071025774**. 홈페이지에는 예금주 이름을 직접 표시하지 않는다. 계좌 정보는 사용자가 `계좌로 후원하기`를 선택하면 펼쳐지고 계좌번호 복사 버튼을 제공한다.
+- 공통 웹 버튼: **더 좋은 앱을 위한 후원** 또는 **후원하기**. 사용자가 2026-10-24 개설한 실제 후원 페이지 `https://buymeacoffee.com/roky.studio`로 새 탭 연결한다. `rel="noopener noreferrer"`와 새 탭 열림 안내를 적용한다.
+- 계좌이체 안내를 Buy Me a Coffee로 교체했다. 홈페이지에 계좌번호·개인 이름·계좌 복사 버튼을 다시 표시하지 않는다. 이전 앱의 링크를 위해 `https://mcroky.github.io/roky-studio/#bank-transfer`는 후원 설명과 새 후원 버튼이 있는 위치로 계속 지원한다.
 - 후원 목적을 먼저 설명한다. 누구나 편하게 쓸 수 있는 공공·생활 앱의 개발과 꾸준한 운영, 새 기능·오류 수정·사용성 개선에 보탬이 되는 **자율 후원**이다. 후원 여부를 앱 이용 조건이나 기능 해금에 연결하지 않는다.
 - 후원 플랫폼으로 변경할 때는 사용자가 실제 개설한 페이지 주소를 연결한다. 임의의 후원 계정·결제 링크를 만들지 않고, 결제 과정에서 표시되는 이름과 정보도 확인한다.
-- 각 프로젝트에는 계좌번호를 중복 저장하지 않고 위 안내 주소를 연결한다. 새 탭으로 열어 현재 게임·작업 화면을 유지한다. 계좌 변경은 홈페이지와 이 문서를 함께 수정한다.
-- 버튼은 이체 안내·계좌 복사 동선이다. 사용자가 은행 앱에서 금액과 수취인을 확인한 뒤 이체한다. 송금 링크가 제공되기 전에는 임의의 은행 딥링크를 만들지 않는다.
+- 각 프로젝트의 유도 문구는 짧게 `더 좋은 앱을 위한 후원`으로 통일하고, 설명이 필요하면 `더 좋은 앱을 만들 수 있도록 후원해주세요.`를 사용한다. 후원 페이지 주소가 바뀌면 홈페이지·각 프로젝트의 링크·이 문서를 함께 수정한다. 후원 결제나 정산을 앱에서 대신 처리하지 않는다.
 - **Google Play 배포판:** 웹 이체 버튼을 자동 이식하지 않는다. 디지털 상품·기능 해금·구독의 대가를 계좌이체로 받는 경로는 Play 정책 검토 없이 넣지 않는다. 무보상 자발적 지원 같은 예외도 실제 흐름·수취 방식·국가와 현행 조건을 확인한 뒤 앱별로 결정한다. 배포 채널 설정으로 외부 결제 링크 표시를 제어한다. [공식 결제 정책 안내](https://support.google.com/googleplay/android-developer/answer/10281818?hl=en)
 
 ## 10. 모든 프로젝트는 Google Play 출시를 고려해 시작
