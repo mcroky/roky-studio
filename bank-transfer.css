@@ -7,6 +7,15 @@
 .bank-transfer-card h2{margin:0 0 16px;color:#202630;font-size:clamp(26px,4vw,38px)}
 .bank-transfer-description{max-width:360px;color:#535343;line-height:1.8}
 .bank-transfer-details{padding:24px;border:1px solid #e8dfa2;border-radius:16px;background:#fff}
+.bank-support-optional{margin:20px 0 0;color:#6c6953;font-size:13px;line-height:1.8}
+.bank-transfer-details summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;list-style:none;cursor:pointer;color:#202630;font-size:18px;font-weight:800}
+.bank-transfer-details summary::-webkit-details-marker{display:none}
+.bank-transfer-details summary small{display:block;margin-top:7px;color:#706e5b;font-size:12px;font-weight:500}
+.bank-transfer-toggle{font-size:24px;font-weight:400}
+.bank-transfer-details[open] .bank-transfer-toggle{transform:rotate(45deg)}
+.bank-transfer-details summary:focus-visible{outline:3px solid #2256c4;outline-offset:6px;border-radius:4px}
+.bank-transfer-account{margin-top:22px;padding-top:20px;border-top:1px solid #eee8c7}
+.bank-transfer-instruction{margin:0 0 20px;color:#65634f;font-size:13px;line-height:1.8}
 .bank-transfer-details dl{display:grid;gap:14px;margin:0 0 24px}
 .bank-transfer-details dl>div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px}
 .bank-transfer-details dt{color:#5d654e;font-size:14px}
