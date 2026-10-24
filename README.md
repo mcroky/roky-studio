@@ -6,6 +6,10 @@
 
 새 프로젝트나 기능 수정을 시작하기 전에 [프로젝트 기본 틀](PROJECT_BASELINE.md)과 [게임 개발 스킬 분석·적용 기준](docs/GAMEDEV_SKILLS_GUIDE.md)을 읽습니다. `AGENTS.md`에도 같은 참조 규칙을 기록했습니다.
 
+모든 프로젝트는 향후 Google Play 출시를 목표로 합니다. 기획·구조 설계부터 [Google Play 출시 준비 기준](docs/GOOGLE_PLAY_READINESS.md)을 함께 적용합니다. Android 빌드, 터치·뒤로가기, 저장 호환성, 개인정보와 배포판별 결제 정책을 확인합니다.
+
+웹의 **카카오뱅크 이체** 버튼은 [공통 계좌 안내](https://mcroky.github.io/roky-studio/#bank-transfer)로 연결합니다. 계좌 정보와 복사 기능은 홈페이지에서 관리합니다. Google Play 배포판의 표시는 별도 정책 검토와 채널 설정을 거칩니다.
+
 용사월드와 내일은 탁구왕의 후속 개발에는 [스킬 기준 점검·개선 목록](docs/GAME_REVIEW_2026-10-24.md)도 참고합니다.
 
 저장·경기 안정성 개선 결과는 [2026-10-24 수정·배포 기록](docs/GAME_FIXES_2026-10-24.md)에 있습니다.

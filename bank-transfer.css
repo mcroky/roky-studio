@@ -1,0 +1,20 @@
+.header-inner{gap:clamp(12px,2vw,28px)}
+.site-header nav{flex-wrap:wrap;row-gap:8px}
+.bank-transfer-link{color:#514900;font-weight:800}
+.bank-transfer-section{padding:64px 0;background:#fffbe3;scroll-margin-top:24px}
+.bank-transfer-card{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px}
+.bank-transfer-kicker{margin:0 0 12px;color:#635900;font-size:12px;font-weight:800;letter-spacing:.12em}
+.bank-transfer-card h2{margin:0 0 16px;color:#202630;font-size:clamp(26px,4vw,38px)}
+.bank-transfer-description{max-width:360px;color:#535343;line-height:1.8}
+.bank-transfer-details{padding:24px;border:1px solid #e8dfa2;border-radius:16px;background:#fff}
+.bank-transfer-details dl{display:grid;gap:14px;margin:0 0 24px}
+.bank-transfer-details dl>div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px}
+.bank-transfer-details dt{color:#5d654e;font-size:14px}
+.bank-transfer-details dd{margin:0;color:#202630;font-weight:800;overflow-wrap:anywhere}
+#bank-account-number{font-variant-numeric:tabular-nums;user-select:all}
+.bank-copy-button{width:100%;min-height:48px;padding:12px 20px;border:1px solid #443e0b;border-radius:10px;background:#ffdf43;color:#242000;font:inherit;font-weight:800;cursor:pointer}
+.bank-copy-button:hover{background:#f5d125}
+.bank-copy-button:disabled{cursor:progress;opacity:.7}
+.bank-copy-button:focus-visible,.bank-transfer-link:focus-visible{outline:3px solid #2256c4;outline-offset:4px}
+.bank-copy-status{min-height:3em;margin:12px 0 0;color:#535343;font-size:12px;line-height:1.6}
+@media(max-width:760px){.bank-transfer-section{padding:40px 0}.bank-transfer-card{grid-template-columns:minmax(0,1fr);gap:20px}.bank-transfer-details{padding:20px}}
