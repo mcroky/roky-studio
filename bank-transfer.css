@@ -14,6 +14,13 @@
 .bank-support-button:hover{background:#f5d125}
 .bank-support-button:focus-visible{outline:3px solid #2256c4;outline-offset:4px}
 .bank-support-note{margin:14px 0 0;color:#706e5b;font-size:12px;line-height:1.8;word-break:keep-all}
+.bank-support-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bank-support-actions .bank-copy-button{font-size:13px;line-height:1.5;background:#fff;border-color:#d7cd8b;word-break:keep-all}
+.bank-support-actions .bank-copy-button:hover{background:#fffbe3}
+.bank-support-account{margin:12px 0 0;color:#706e5b;font-size:12px;line-height:1.8;overflow-wrap:anywhere}
+.bank-support-account span{margin-left:6px;font-variant-numeric:tabular-nums;user-select:all}
+.bank-support-panel .bank-copy-status{min-height:3.2em;margin:7px 0 0;font-size:11px}
+@media(max-width:380px){.bank-support-actions{grid-template-columns:1fr}.bank-support-panel{padding:20px}}
 .bank-support-optional{margin:20px 0 0;color:#6c6953;font-size:13px;line-height:1.8}
 .bank-transfer-details summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;list-style:none;cursor:pointer;color:#202630;font-size:18px;font-weight:800}
 .bank-transfer-details summary::-webkit-details-marker{display:none}
