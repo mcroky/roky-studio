@@ -148,14 +148,14 @@ function renderCard(name, releases) {
   const date = card.querySelector('.update-meta time');
   date.dateTime = latest.date;
   date.textContent = latest.date.replaceAll('-', '.');
-  const heading = card.querySelector('h3');
+  const heading = card.querySelector('.update-title');
   heading.replaceChildren(document.createTextNode(latest.title));
   if (latest.version) {
     const version = document.createElement('span');
     version.textContent = `v${latest.version}`;
     heading.append(' ', version);
   }
-  card.querySelector(':scope > p').textContent = latest.changes.slice(0, 2).join(' ');
+  card.querySelector('.update-body > p').textContent = latest.changes.slice(0, 2).join(' ');
   const history = card.querySelector('details.update-history');
   const list = history.querySelector('ol');
   list.replaceChildren();
@@ -170,7 +170,6 @@ function renderCard(name, releases) {
     list.append(item);
   }
   history.hidden = releases.length < 2;
-  history.open = releases.length > 1;
 }
 
 async function syncUpdates() {

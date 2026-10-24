@@ -14,11 +14,30 @@
 @media(max-width:420px){.site-header nav{gap:12px;font-size:11px}.brand{font-size:15px}.brand-mark{width:29px;height:29px;font-size:24px}.hero-art{transform:scale(.66);height:325px}.hero-count{font-size:8px}.hero-count strong{font-size:12px}.button-primary{padding:15px 16px;font-size:12px}.eyebrow{font-size:9px;letter-spacing:1.5px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
-.updates-section{padding:100px 0 110px;background:#fff;scroll-margin-top:20px}.updates-heading{margin-bottom:32px}.updates-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.update-card{display:flex;flex-direction:column;min-height:260px;padding:25px 26px 26px;border:1px solid #e6eaf0;border-radius:16px;background:#fff;box-shadow:0 10px 30px rgba(20,36,77,.035)}.update-card:first-child{border-top:4px solid #3545d9}.update-card:nth-child(2){border-top:4px solid #1c8fa8}.update-card-pending{border-top:4px solid #90bc9f;background:#f8fbf9}.update-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#8995a8;font-size:11px;font-weight:700}.update-project{color:var(--blue);font-size:11px;font-weight:800}.update-card:nth-child(2) .update-project{color:#137c92}.update-card-pending .update-project{color:#368866}.update-card h3{margin:21px 0 11px;font-family:Manrope,'Noto Sans KR',sans-serif;font-size:20px;letter-spacing:-.8px;line-height:1.4;word-break:keep-all}.update-card h3 span{display:inline-block;margin-left:4px;color:#8995aa;font-size:11px;letter-spacing:0;vertical-align:middle}.update-card p{margin:0 0 24px;color:#6c788b;font-size:12px;line-height:1.9;word-break:keep-all}.update-card a,.update-coming{display:inline-flex;align-items:center;gap:8px;margin-top:auto;color:var(--blue);font-size:11px;font-weight:800}.update-card a:hover{text-decoration:underline}.update-coming{color:#7aa98e}
-@media(max-width:760px){.updates-section{padding:75px 0 85px}.updates-grid{grid-template-columns:1fr;gap:14px}.update-card{min-height:0;padding:22px}.update-card p{margin-bottom:25px}}
+.updates-section{padding:56px 0;background:#fff;scroll-margin-top:20px}
+.updates-heading{margin-bottom:20px}
+.updates-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:10px}
+.update-card{min-width:0;border:1px solid #e6eaf0;border-radius:10px;background:#fff}
+.update-details>summary{position:relative;padding:14px 42px 14px 16px;min-height:72px;box-sizing:border-box;list-style:none;cursor:pointer;border-radius:10px}
+.update-details>summary::-webkit-details-marker{display:none}
+.update-details>summary:after{content:'+';position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#526184;font-size:20px}
+.update-details[open]>summary:after{content:'−'}
+.update-details>summary:hover{background:#f6f8fc}
+.update-details>summary:focus-visible{outline:3px solid #83aaff;outline-offset:3px}
+.update-details h3{margin:0;font:inherit}
+.update-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#66738a;font-size:11px;font-weight:700;line-height:1.5}
+.update-meta time{flex-shrink:0;font-weight:500}
+.update-meta>span{color:var(--blue);font-weight:800}
+.update-title{display:block;margin-top:4px;color:#1b2944;font-size:14px;font-weight:700;line-height:1.5;letter-spacing:-.35px;overflow-wrap:anywhere}
+.update-title>span{display:inline-block;margin-left:4px;color:#66738a;font-size:10px;font-weight:500;letter-spacing:0}
+.update-body{padding:0 16px 16px}
+.update-body>p{margin:0 0 12px;color:#6c788b;font-size:12px;line-height:1.8;word-break:keep-all}
+.update-body>a{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--blue);font-size:11px;font-weight:800}
+.update-body>a:hover{text-decoration:underline}
+@media(max-width:760px){.updates-section{padding:40px 0}.updates-grid{grid-template-columns:1fr;gap:8px}.update-details>summary{padding:12px 38px 12px 14px;min-height:70px}.update-meta{font-size:10px}.update-title{font-size:13px}.update-body{padding:0 14px 14px}}
 
 .screenshot-art{display:grid;place-items:center}.hero-screenshot{background:#18283d}.tennis-screenshot{background:#c8e2dd}.project-thumbnail{display:block;width:100%;height:100%;object-fit:contain}
-.update-history{margin:-7px 0 22px;padding-top:14px;border-top:1px solid #e8edf4}.update-history summary{display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none;cursor:pointer;color:#526184;font-size:11px;font-weight:800}.update-history summary::-webkit-details-marker{display:none}.update-history summary:after{content:'+';font-size:17px;font-weight:500;line-height:1}.update-history[open] summary:after{content:'−'}.update-history summary:focus-visible{outline:3px solid #83aaff;outline-offset:3px}.update-history ol{display:grid;gap:11px;margin:17px 0 0;padding:0;list-style:none}.update-history li{display:grid;grid-template-columns:54px 1fr;gap:8px;color:#68758c;font-size:11px;line-height:1.65;word-break:keep-all}.update-history time{color:#334cc3;font-size:10px;font-weight:800;white-space:nowrap}
+.update-history{margin:0 0 8px;padding-top:14px;border-top:1px solid #e8edf4}.update-history summary{min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none;cursor:pointer;color:#526184;font-size:11px;font-weight:800}.update-history summary::-webkit-details-marker{display:none}.update-history summary:after{content:'+';font-size:17px;font-weight:500;line-height:1}.update-history[open] summary:after{content:'−'}.update-history summary:focus-visible{outline:3px solid #83aaff;outline-offset:3px}.update-history ol{display:grid;gap:11px;margin:17px 0 0;padding:0;list-style:none}.update-history li{display:grid;grid-template-columns:54px 1fr;gap:8px;color:#68758c;font-size:11px;line-height:1.65;word-break:keep-all}.update-history time{color:#334cc3;font-size:10px;font-weight:800;white-space:nowrap}
 html,body{max-width:100%;overflow-x:clip}
 
 /* 1. The two orbit paths slowly turn, with a small travelling star. */
