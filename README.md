@@ -2,6 +2,14 @@
 
 로키 워킷, 용사월드, 내일은 탁구왕, 스트레스 브레이크를 소개하는 정적 홈페이지입니다. 별도 빌드 없이 `index.html`을 열어 확인할 수 있습니다.
 
+## 개발 전 읽을 문서
+
+새 프로젝트나 기능 수정을 시작하기 전에 [프로젝트 기본 틀](PROJECT_BASELINE.md)과 [게임 개발 스킬 분석·적용 기준](docs/GAMEDEV_SKILLS_GUIDE.md)을 읽습니다. `AGENTS.md`에도 같은 참조 규칙을 기록했습니다.
+
+용사월드와 내일은 탁구왕의 후속 개발에는 [스킬 기준 점검·개선 목록](docs/GAME_REVIEW_2026-10-24.md)도 참고합니다.
+
+저장·경기 안정성 개선 결과는 [2026-10-24 수정·배포 기록](docs/GAME_FIXES_2026-10-24.md)에 있습니다.
+
 ## GitHub Pages 배포
 
 공개 주소: <https://mcroky.github.io/roky-studio/>

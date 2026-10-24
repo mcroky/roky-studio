@@ -1,0 +1,35 @@
+{
+  "installed_on": "2026-10-24",
+  "source_repository": "gamedev-skills/awesome-gamedev-agent-skills",
+  "source_commit": "7eb1b53305fab881f4758e2eff2e371cd7869221",
+  "scope": "Codex user skills",
+  "skills": [
+    { "name": "router", "path": "router", "group": "routing" },
+    { "name": "phaser-core", "path": "skills/web-engines/phaser-core", "group": "engine" },
+    { "name": "phaser-arcade-physics", "path": "skills/web-engines/phaser-arcade-physics", "group": "engine" },
+    { "name": "threejs-scene-setup", "path": "skills/web-engines/threejs-scene-setup", "group": "engine" },
+    { "name": "threejs-gltf-loading", "path": "skills/web-engines/threejs-gltf-loading", "group": "engine" },
+    { "name": "threejs-materials-lighting", "path": "skills/web-engines/threejs-materials-lighting", "group": "engine" },
+    { "name": "create-game-assets", "path": "skills/disciplines/create-game-assets", "group": "discipline" },
+    { "name": "game-ai", "path": "skills/disciplines/game-ai", "group": "discipline" },
+    { "name": "procedural-gen", "path": "skills/disciplines/procedural-gen", "group": "discipline" },
+    { "name": "dialogue-systems", "path": "skills/disciplines/dialogue-systems", "group": "discipline" },
+    { "name": "save-systems", "path": "skills/disciplines/save-systems", "group": "discipline" },
+    { "name": "audio-design", "path": "skills/disciplines/audio-design", "group": "discipline" },
+    { "name": "shader-programming", "path": "skills/disciplines/shader-programming", "group": "discipline" },
+    { "name": "physics-tuning", "path": "skills/disciplines/physics-tuning", "group": "discipline" },
+    { "name": "level-design", "path": "skills/disciplines/level-design", "group": "discipline" },
+    { "name": "input-systems", "path": "skills/disciplines/input-systems", "group": "discipline" },
+    { "name": "game-feel", "path": "skills/disciplines/game-feel", "group": "discipline" },
+    { "name": "game-ui-ux", "path": "skills/disciplines/game-ui-ux", "group": "discipline" },
+    { "name": "camera-systems", "path": "skills/disciplines/camera-systems", "group": "discipline" },
+    { "name": "performance-optimization", "path": "skills/disciplines/performance-optimization", "group": "discipline" },
+    { "name": "rpg", "path": "skills/genres/rpg", "group": "genre" },
+    { "name": "prototype-fast", "path": "skills/workflows/prototype-fast", "group": "workflow" }
+  ],
+  "local_adaptations": [
+    "router: sibling skill path resolution and installed subset inventory",
+    "router: bundled upstream version policy for offline reference",
+    "all skills: preserve upstream LICENSE, NOTICE and source metadata"
+  ]
+}
