@@ -95,7 +95,7 @@
                 <div class="card-topline"><span class="category">매일 새로운 네모로직</span><span class="availability live"><i></i> 공개 플레이</span></div>
                 <h3>오늘의 퍼즐</h3>
                 <p class="project-description">작은 칸에 채우는 오늘의 여유. 매일 자정 새로 만나는 세 가지 난이도의 네모로직을 풀어보세요. 진행 상황과 완료 기록은 내 브라우저에 저장됩니다.</p>
-                <ul class="feature-list" aria-label="주요 특징"><li>매일 새로운 3가지 퍼즐</li><li>Godot 그래픽</li><li>자동 로컬 저장·백업</li></ul>
+                <ul class="feature-list" aria-label="주요 특징"><li>매일 새로운 3가지 퍼즐</li><li>한국어·영어·일본어·중국어</li><li>자동 로컬 저장·백업</li></ul>
                 <a class="project-link" href="https://mcroky.github.io/daily-puzzle/" target="_blank" rel="noopener noreferrer" aria-label="오늘의 퍼즐 새 창에서 플레이하기">플레이하기 <span aria-hidden="true">↗</span></a>
               </div>
             </article>
@@ -206,8 +206,8 @@
             </article>
             <article class="update-card update-card-puzzle">
               <div class="update-meta"><span class="update-project">오늘의 퍼즐</span><time datetime="2026-10-24">2026.10.24</time></div>
-              <h3>하루 한 장, 첫 번째 페이지 <span>v1.0.0</span></h3>
-              <p>Godot로 그리는 일일 네모로직을 공개했습니다. 5×5·7×7·9×9 난이도, 한국 시간 자정 갱신, 로컬 자동 저장과 JSON 백업을 지원합니다.</p>
+              <h3>네 가지 언어로 만나는 오늘의 퍼즐 <span>v1.1.0</span></h3>
+              <p>영어·일본어·중국어(간체)와 언어 선택을 추가했습니다. 언어를 바꾸어도 진행 기록은 그대로 이어집니다. 후원 버튼 옆에는 카카오뱅크 계좌 복사를 함께 제공합니다.</p>
               <a href="https://mcroky.github.io/daily-puzzle/" target="_blank" rel="noopener noreferrer">오늘의 퍼즐 플레이하기 <span aria-hidden="true">↗</span></a>
             </article>
             <article class="update-card update-card-garden">
@@ -327,5 +327,84 @@
     <script src="bank-transfer.js?v=20261024-2" defer></script>
     <!-- Cloudflare Web Analytics: this public site token only records visits to Roky Studio. -->
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"09826592d2774b24b31f74a1ad6bc33b"}'></script>
-  </body>
+
+<script data-roky-bank-copy>
+/* Roky Studio shared web-only bank account copy. No payment or data collection. */
+(() => {
+  'use strict';
+  if (window.rokyBankCopyInstalled) return;
+  window.rokyBankCopyInstalled = true;
+  const account = '3333071025774';
+  const translations = {
+    ko:['카카오뱅크 계좌 복사','계좌번호를 복사했어요. 은행 앱에서 이체해 주세요.','복사할 수 없어요. 아래 계좌번호를 길게 누르거나 선택해 복사해 주세요.','닫기'],
+    en:['Copy KakaoBank account','Account number copied. You can transfer from your bank app.','Copy unavailable. Select and copy the account number below.','Close'],
+    ja:['カカオバンク口座をコピー','口座番号をコピーしました。銀行アプリで振り込めます。','コピーできません。下の口座番号を選択してコピーしてください。','閉じる'],
+    zh:['复制KakaoBank账号','账号已复制，可在银行应用中转账。','无法复制，请选择并复制下方账号。','关闭'],
+  };
+  function words() {
+    const lang = (window.RokyI18n?.language || document.documentElement.lang || 'ko').slice(0,2);
+    return translations[lang] || translations.ko;
+  }
+  const style = document.createElement('style');
+  style.textContent = '.roky-bank-copy-wrap{display:inline-flex;max-width:100%;vertical-align:middle}.roky-bank-copy{display:inline-flex!important;align-items:center;justify-content:center;min-height:44px;max-width:100%;padding:9px 12px!important;border:1px solid #a28a12!important;border-radius:9px;background:#fffbed!important;color:#342d08!important;font:600 12px/1.5 system-ui,sans-serif!important;white-space:normal;cursor:pointer;box-sizing:border-box;text-align:center}.roky-bank-copy:hover{background:#fff0a3!important}.roky-bank-copy:focus-visible{outline:3px solid #2676c4;outline-offset:3px}.roky-bank-status{position:fixed;z-index:2147483646;bottom:max(20px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 32px);box-sizing:border-box;border-radius:10px;padding:13px 18px;background:#24372e;color:#fff;font:13px/1.6 system-ui,sans-serif;text-align:center;box-shadow:0 4px 24px #0003}.roky-bank-status[hidden]{display:none}.roky-bank-manual{position:fixed;z-index:2147483647;inset:0;background:#0008;display:grid;place-items:center;padding:20px}.roky-bank-manual>div{width:min(100%,360px);box-sizing:border-box;padding:24px;background:white;border-radius:14px;color:#222;font:14px/1.7 system-ui,sans-serif}.roky-bank-manual input{box-sizing:border-box;display:block;width:100%;padding:12px;font:600 19px/1.5 ui-monospace,monospace;margin:16px 0;color:#222;background:#fff;border:1px solid #bbb;border-radius:6px}.roky-bank-manual button{min-height:44px;padding:8px 16px;font:inherit;cursor:pointer}';
+  document.head.append(style);
+  let notice, noticeTimer;
+  function manual(button) {
+    const [,,message,close] = words();
+    const overlay = document.createElement('div'); overlay.className = 'roky-bank-manual';
+    const panel = document.createElement('div'); panel.setAttribute('role','dialog'); panel.setAttribute('aria-modal','true'); panel.setAttribute('aria-label',words()[0]);
+    const p = document.createElement('p'); p.textContent = message;
+    const label = document.createElement('label'); label.textContent = 'KakaoBank';
+    const input = document.createElement('input'); input.readOnly = true; input.value = account; input.setAttribute('aria-label','KakaoBank');
+    const done = document.createElement('button'); done.textContent = close;
+    const dismiss = () => { overlay.remove(); button.focus(); };
+    done.onclick = dismiss;
+    overlay.addEventListener('keydown',e=>{
+      if(e.key==='Escape'){e.preventDefault();dismiss();}
+      if(e.key==='Tab'){e.preventDefault();(document.activeElement===input?done:input).focus();}
+      e.stopPropagation();
+    });
+    label.append(input); panel.append(p,label,done); overlay.append(panel); document.body.append(overlay); input.focus(); input.select();
+  }
+  async function copy(button) {
+    let copied = false;
+    try { await navigator.clipboard.writeText(account); copied = true; } catch {
+      const input = document.createElement('textarea'); input.value = account; input.readOnly = true;
+      input.style.cssText='position:fixed;left:-9999px;top:0;font-size:16px'; document.body.append(input); input.select();
+      try { copied = document.execCommand('copy'); } catch {}
+      input.remove(); button.focus({preventScroll:true});
+    }
+    if(!copied){manual(button);return;}
+    if(!notice){notice=document.createElement('div');notice.className='roky-bank-status';notice.setAttribute('role','status');notice.setAttribute('aria-live','polite');document.body.append(notice);}
+    notice.textContent=words()[1];notice.hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>notice.hidden=true,4500);
+  }
+  function install() {
+    for(const anchor of document.querySelectorAll('a[href="https://buymeacoffee.com/roky.studio"]')){
+      if(anchor.closest('#bank-transfer') && document.getElementById('bank-account-copy')) continue;
+      let wrap=anchor.nextElementSibling;
+      if(!wrap?.classList.contains('roky-bank-copy-wrap')){
+        wrap=document.createElement('span');wrap.className='roky-bank-copy-wrap';wrap.setAttribute('data-web-only-support','');
+        const button=document.createElement('button');button.type='button';button.className='roky-bank-copy';button.onclick=()=>copy(button);wrap.append(button);anchor.after(wrap);
+      }
+      const button=wrap.querySelector('button');if(button.textContent!==words()[0])button.textContent=words()[0];
+    }
+  }
+  function start(){
+    install();
+    // Some projects render their shared menus after loading, or replace them on navigation.
+    new MutationObserver(install).observe(document.body,{childList:true,subtree:true});
+    new MutationObserver(install).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+    window.addEventListener('roky:language',install);
+  }
+  function ready(){
+    // A Next.js layout must finish claiming its server-rendered body before we add a sibling.
+    // Its client component calls this after mount on future source builds as well.
+    if(window.__next_f && !Object.keys(document.body).some(key=>key.startsWith('__reactProps$'))){requestAnimationFrame(ready);return;}
+    start();
+  }
+  if(document.readyState==='complete')ready();else window.addEventListener('load',ready,{once:true});
+})();
+
+</script>
+</body>
 </html>
