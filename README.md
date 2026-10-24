@@ -4,6 +4,8 @@
 
 ## 개발 전 읽을 문서
 
+스튜디오와 모든 프로젝트의 공통 메뉴에는 [전자책](https://litt.ly/roky.studio) 버튼도 포함합니다. 신규 앱의 필수 기준은 `PROJECT_BASELINE.md` 11절, 적용 기록은 [전자책 링크 반영 기록](docs/EBOOK_LINK_ROLLOUT_2026-10-24.md)에 있습니다.
+
 새 프로젝트나 기능 수정을 시작하기 전에 [프로젝트 기본 틀](PROJECT_BASELINE.md)과 [게임 개발 스킬 분석·적용 기준](docs/GAMEDEV_SKILLS_GUIDE.md)을 읽습니다. `AGENTS.md`에도 같은 참조 규칙을 기록했습니다.
 
 모든 프로젝트는 향후 Google Play 출시를 목표로 합니다. 기획·구조 설계부터 [Google Play 출시 준비 기준](docs/GOOGLE_PLAY_READINESS.md)을 함께 적용합니다. Android 빌드, 터치·뒤로가기, 저장 호환성, 개인정보와 배포판별 결제 정책을 확인합니다.

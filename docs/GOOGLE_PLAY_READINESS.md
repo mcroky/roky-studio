@@ -49,6 +49,8 @@
 ## 6. 결제·후원 버튼의 채널 구분
 
 - 웹판의 후원 버튼은 `https://buymeacoffee.com/roky.studio`를 사용하고 유도 문구도 `로키스튜디오 후원`으로 표시한다. 기존 `#bank-transfer` 링크는 홈페이지 후원 안내에서 계속 지원한다. 후원을 게임 보상 지급 기능으로 연결하지 않는다.
+
+- 웹 공통 메뉴의 전자책 링크 `https://litt.ly/roky.studio`도 Play 배포 때 검토한다. 외부 디지털 콘텐츠 구매 경로인지 확인하고, 앱별 정책 확인 전에는 웹 버튼을 Play 앱에 자동 포함하지 않는다. 웹 표식 `data-web-only-commerce`만으로 자동 제거되지는 않는다.
 - Play 배포 앱의 디지털 상품·유료 기능·광고 제거·아이템·구독은 현행 Play 정책에 맞는 결제를 설계한다. 외부 웹페이지를 거치는 구매 유도도 검토한다. [Payments 정책](https://support.google.com/googleplay/android-developer/answer/9858738?hl=en)
 - Google FAQ에는 **전액이 창작자에게 가고 디지털 콘텐츠·서비스 이용 권리를 주지 않는 팁·지원금**을 P2P로 취급하는 조건이 있다. 배지·아이템·기능 해금을 대가로 주면서 이 예외에 해당한다고 가정하지 않는다. 국가·프로그램별 조건도 확인한다. [공식 결제 FAQ](https://support.google.com/googleplay/android-developer/answer/10281818?hl=en)
 - `web`·`google-play` 등의 배포 채널 설정을 둔다. Play의 외부 이체 버튼은 앱별 정책 확인 후 노출하고, 미확정이면 숨긴다. 도움말·홈페이지 링크에서 금지된 외부 결제로 이어지는 경로도 점검한다.
