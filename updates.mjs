@@ -133,6 +133,7 @@ async function loadWorkit() {
 }
 
 const loaders = {
+  court: async () => { const data=JSON.parse(await fetchText('/court-rush/updates.json')); if(!Array.isArray(data)) throw new Error('Invalid Court Rush updates'); const releases=data.filter(validRelease); if(!releases.length) throw new Error('Empty Court Rush updates'); return releases; },
   workit: loadWorkit,
   hero: loadHero,
   tennis: async () => parseTennis(await fetchText('/tomorrow-table-tennis/club-updates.js')),
@@ -182,7 +183,7 @@ async function syncUpdates() {
   }));
   const dates = [...document.querySelectorAll('.update-card .update-meta time')].map(time => time.dateTime).filter(Boolean);
   if (dates.length) document.getElementById('updates-as-of').textContent = `${dates.sort().at(-1).replaceAll('-', '.')} 기준`;
-  status.textContent = dates.length === results.length ? '연결된 프로젝트의 최신 내역을 확인했습니다.' : '일부 프로젝트의 최신 기록을 불러오지 못해 기존 내역을 표시합니다.';
+  status.textContent = results.every(result => result.status === 'fulfilled') ? '연결된 프로젝트의 최신 내역을 확인했습니다.' : '일부 프로젝트의 최신 기록을 불러오지 못해 기존 내역을 표시합니다.';
   for (const result of results) if (result.status === 'rejected') console.warn('Update sync failed:', result.reason);
 }
 
