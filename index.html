@@ -55,7 +55,7 @@
           <div class="hero-actions">
             <a class="button button-primary" href="#projects">프로젝트 살펴보기 <span aria-hidden="true">↘</span></a>
             <a class="hero-secondary" href="#updates">업데이트 내역 <span aria-hidden="true">↗</span></a>
-            <span class="hero-count"><strong id="hero-project-count">08</strong> PROJECTS & COUNTING</span>
+            <span class="hero-count"><strong id="hero-project-count">09</strong> PROJECTS & COUNTING</span>
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -73,7 +73,7 @@
         <div class="shell">
           <div class="section-heading">
             <div>
-              <p class="section-kicker">THE COLLECTION <span id="project-range">01 — 08</span></p>
+              <p class="section-kicker">THE COLLECTION <span id="project-range">01 — 09</span></p>
               <h2 id="projects-title">Roky Studio의 프로젝트</h2>
               <p>짧게 둘러보고 바로 시작하세요. 자세한 소개는 펼쳐볼 수 있어요.</p>
             </div>
@@ -87,6 +87,15 @@
           <p class="project-result-count" id="project-result-count" role="status" aria-live="polite" hidden></p>
 
           <div class="project-grid">
+            <article class="project-card project-origin" data-category="도구">
+              <div class="project-art screenshot-art"><img class="project-thumbnail" src="assets/origin-check.svg" alt="어디서 만들었지? 라벨 OCR 공개 체험판" width="1200" height="630" loading="lazy" /></div>
+              <div class="project-content">
+                <div class="card-topline"><span class="category">제품 라벨 확인</span><span class="availability live"><i></i> 공개 체험판</span></div>
+                <h3>어디서 만들었지?</h3><p class="project-summary">라벨을 읽고, 제조국 표시를 근거와 함께.</p>
+                <details class="project-details"><summary><span class="more-label">상세 보기</span><span class="less-label">설명 접기</span></summary><p class="project-description">사진을 기기 안에서 읽고 제조국·원산지 표시를 확인하는 도구입니다. 브랜드나 바코드로 제조국을 추측하지 않습니다. 공개 체험판은 OCR·라벨 확인·30개 식품 표본 검색을 제공하며, 실시간 식약처 조회는 별도 서버가 필요합니다.</p><ul class="feature-list" aria-label="주요 특징"><li>기기 내 사진 OCR</li><li>한국어·영어·일본어·중국어</li><li>출처·원문 근거 확인</li></ul></details>
+                <a class="project-link" href="https://mcroky.github.io/origin-check/" target="_blank" rel="noopener noreferrer" aria-label="어디서 만들었지? 공개 체험판 새 창에서 열기">체험하기 <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
             <article class="project-card project-court" data-category="게임">
               <div class="project-art screenshot-art"><img class="project-thumbnail" src="assets/court-rush.svg" alt="코트러시의 청록색 농구 코트와 주황색 공" width="1160" height="650" loading="lazy" /></div>
               <div class="project-content">
@@ -231,6 +240,7 @@
             </div>
           </div>
           <div class="updates-grid" id="updates-latest">
+            <article class="update-card update-card-origin"><details class="update-details"><summary><h3><span class="update-meta"><span>어디서 만들었지?</span><time datetime="2026-10-25">2026.10.25</time></span><span class="update-title">라벨에서 시작하는 제조국 확인 · 공개 체험판 <span>v0.9.0</span></span></h3></summary><div class="update-body"><p>기기 내 사진 OCR·라벨 표시 확인·30개 식품 표본 검색을 공개했습니다. 실시간 식약처 조회는 별도 서버가 필요하며 공개 체험판에서는 제공하지 않습니다.</p><details class="update-history" hidden><summary>지난 업데이트 내역</summary><ol></ol></details><a href="https://mcroky.github.io/origin-check/" target="_blank" rel="noopener noreferrer">공개 체험판에서 확인하기 <span aria-hidden="true">↗</span></a></div></details></article>
             <article class="update-card update-card-court">
               <details class="update-details">
                 <summary><h3><span class="update-meta"><span>코트러시 · COURT RUSH</span><time datetime="2026-10-24">2026.10.24</time></span><span class="update-title">내 선수로, 다음 코트까지 <span>v0.7.0</span></span></h3></summary>
@@ -332,7 +342,7 @@
             <input type="hidden" name="_url" value="https://mcroky.github.io/roky-studio/" />
             <div class="feedback-honeypot" aria-hidden="true"><label for="feedback-website">웹사이트</label><input id="feedback-website" name="_honey" type="text" tabindex="-1" autocomplete="off" /></div>
             <label for="feedback-project">어떤 프로젝트에 대한 의견인가요?</label>
-            <select id="feedback-project" name="project" required><option value="" disabled selected>프로젝트를 선택해 주세요</option><option value="오늘의 퍼즐">오늘의 퍼즐</option><option value="작은정원">작은정원</option><option value="로키 워킷">로키 워킷</option><option value="용사월드">용사월드</option><option value="내일은 탁구왕">내일은 탁구왕</option><option value="스트레스 브레이크">스트레스 브레이크</option><option value="우리 동네 런닝 코스">우리 동네 런닝 코스</option><option value="코트러시">코트러시 · COURT RUSH</option><option value="Roky Studio 홈페이지">Roky Studio 홈페이지</option><option value="기타">기타</option></select>
+            <select id="feedback-project" name="project" required><option value="" disabled selected>프로젝트를 선택해 주세요</option><option value="어디서 만들었지?">어디서 만들었지?</option><option value="오늘의 퍼즐">오늘의 퍼즐</option><option value="작은정원">작은정원</option><option value="로키 워킷">로키 워킷</option><option value="용사월드">용사월드</option><option value="내일은 탁구왕">내일은 탁구왕</option><option value="스트레스 브레이크">스트레스 브레이크</option><option value="우리 동네 런닝 코스">우리 동네 런닝 코스</option><option value="코트러시">코트러시 · COURT RUSH</option><option value="Roky Studio 홈페이지">Roky Studio 홈페이지</option><option value="기타">기타</option></select>
             <div class="feedback-fields"><div><label for="feedback-name">이름 <span>선택</span></label><input id="feedback-name" name="name" type="text" maxlength="60" placeholder="어떻게 불러드릴까요?" autocomplete="name" /></div><div><label for="feedback-email">답장 받을 이메일 <span>선택</span></label><input id="feedback-email" name="email" type="email" maxlength="120" placeholder="답장을 원할 때만 입력" autocomplete="email" /></div></div>
             <label for="feedback-message">의견</label>
             <textarea id="feedback-message" name="message" rows="6" minlength="10" maxlength="2000" placeholder="프로젝트를 사용하며 느낀 점이나 아이디어를 적어주세요." required></textarea>
@@ -359,7 +369,7 @@
 
       </div>
     </footer>
-    <script type="module" src="updates.mjs?v=20261025-latest-three"></script>
+    <script type="module" src="updates.mjs?v=origin-20261025-20261025-latest-three"></script>
     <script src="projects.js?v=20261025-space-layout" defer></script>
     <script src="effects.js?v=20261021-2" defer></script>
     <script src="bank-transfer.js?v=20261024-2" defer></script>
