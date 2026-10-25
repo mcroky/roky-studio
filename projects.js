@@ -43,7 +43,6 @@ if (projectCards.length) {
 
     projectResultCount.textContent = `${visible}개 프로젝트${visible === projectCards.length ? '' : ` · 전체 ${projectCards.length}개`}`;
     projectEmpty.hidden = visible !== 0;
-    projectGrid.classList.toggle('project-grid-dense', visible >= 5);
   }
 
   projectSearch.addEventListener('input', updateProjects);

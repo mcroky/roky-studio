@@ -172,7 +172,18 @@ function renderCard(name, releases) {
   history.hidden = releases.length < 2;
 }
 
+function arrangeUpdates() {
+  const latest = document.getElementById('updates-latest');
+  const older = document.getElementById('updates-older');
+  const cards = [...document.querySelectorAll('.update-card')];
+  cards.sort((a, b) => b.querySelector('.update-meta time').dateTime.localeCompare(a.querySelector('.update-meta time').dateTime));
+  cards.forEach((card, index) => (index < 3 ? latest : older).append(card));
+  document.getElementById('updates-more').hidden = cards.length <= 3;
+  document.getElementById('updates-more-count').textContent = `(${Math.max(0, cards.length - 3)})`;
+}
+
 async function syncUpdates() {
+  arrangeUpdates();
   const status = document.getElementById('updates-sync-status');
   status.textContent = '각 프로젝트의 최신 업데이트를 확인하고 있습니다.';
   const results = await Promise.allSettled(Object.entries(loaders).map(async ([name, load]) => {
@@ -181,6 +192,7 @@ async function syncUpdates() {
     return releases[0].date;
   }));
   const dates = [...document.querySelectorAll('.update-card .update-meta time')].map(time => time.dateTime).filter(Boolean);
+  arrangeUpdates();
   if (dates.length) document.getElementById('updates-as-of').textContent = `${dates.sort().at(-1).replaceAll('-', '.')} 기준`;
   status.textContent = results.every(result => result.status === 'fulfilled') ? '연결된 프로젝트의 최신 내역을 확인했습니다.' : '일부 프로젝트의 최신 기록을 불러오지 못해 기존 내역을 표시합니다.';
   for (const result of results) if (result.status === 'rejected') console.warn('Update sync failed:', result.reason);
