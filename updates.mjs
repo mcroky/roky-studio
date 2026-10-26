@@ -133,6 +133,7 @@ async function loadWorkit() {
 }
 
 const loaders = {
+  music: async () => { const data=JSON.parse(await fetchText('/music-diary/updates.json')); if(!Array.isArray(data)) throw new Error('Invalid music diary updates'); const releases=data.filter(validRelease); if(!releases.length) throw new Error('Empty music diary updates'); return releases; },
   origin: async () => { const data=JSON.parse(await fetchText('/origin-check/updates.json')); if(!Array.isArray(data)) throw new Error('Invalid origin updates'); const releases=data.filter(validRelease); if(!releases.length) throw new Error('Empty origin updates'); return releases; },
   court: async () => { const data=JSON.parse(await fetchText('/court-rush/updates.json')); if(!Array.isArray(data)) throw new Error('Invalid Court Rush updates'); const releases=data.filter(validRelease); if(!releases.length) throw new Error('Empty Court Rush updates'); return releases; },
   workit: loadWorkit,

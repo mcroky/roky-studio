@@ -36,7 +36,7 @@
 .update-body>a:hover{text-decoration:underline}
 @media(max-width:760px){.updates-section{padding:40px 0}.updates-grid{grid-template-columns:1fr;gap:8px}.update-details>summary{padding:12px 38px 12px 14px;min-height:70px}.update-meta{font-size:10px}.update-title{font-size:13px}.update-body{padding:0 14px 14px}}
 
-.screenshot-art{display:grid;place-items:center}.hero-screenshot{background:#18283d}.tennis-screenshot{background:#c8e2dd}.project-thumbnail{display:block;width:100%;height:100%;object-fit:contain}
+.screenshot-art{display:grid;place-items:center}.hero-screenshot{background:#18283d}.tennis-screenshot{background:#c8e2dd}.music-screenshot{background:#d9ddd1}.project-music .category{color:#526a56}.project-thumbnail{display:block;width:100%;height:100%;object-fit:contain}
 .update-history{margin:0 0 8px;padding-top:14px;border-top:1px solid #e8edf4}.update-history summary{min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none;cursor:pointer;color:#526184;font-size:11px;font-weight:800}.update-history summary::-webkit-details-marker{display:none}.update-history summary:after{content:'+';font-size:17px;font-weight:500;line-height:1}.update-history[open] summary:after{content:'−'}.update-history summary:focus-visible{outline:3px solid #83aaff;outline-offset:3px}.update-history ol{display:grid;gap:11px;margin:17px 0 0;padding:0;list-style:none}.update-history li{display:grid;grid-template-columns:54px 1fr;gap:8px;color:#68758c;font-size:11px;line-height:1.65;word-break:keep-all}.update-history time{color:#334cc3;font-size:10px;font-weight:800;white-space:nowrap}
 html,body{max-width:100%;overflow-x:clip}
 
