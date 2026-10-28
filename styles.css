@@ -153,3 +153,15 @@ html,body{max-width:100%;overflow-x:clip}
 .header-freelance:hover{border-color:#8294ed;background:#eaf0ff}
 .header-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto}
 @media(max-width:760px){.header-actions{order:2;margin-left:auto}.header-freelance{margin-left:0}.site-header .header-social{margin-left:0}}
+
+/* Keep Studio's three header actions in one visual family. */
+.site-header .header-actions{align-items:stretch}
+.site-header .header-actions .roky-ebook-link,.site-header .header-freelance,.site-header .header-social-toggle{display:flex;align-items:center;justify-content:center;min-height:54px;padding:8px 12px;border:1px solid #cbd7ee;border-radius:10px;background:#f4f7ff;color:#203967;font:700 12px/1.3 'DM Sans','Noto Sans KR',sans-serif;box-shadow:none;text-decoration:none}
+.site-header .header-actions .roky-ebook-link:hover,.site-header .header-freelance:hover,.site-header .header-social-toggle:hover{border-color:#849be1;background:#e7eeff;color:#203967}
+.site-header .header-actions .roky-ebook-link:focus-visible,.site-header .header-freelance:focus-visible,.site-header .header-social-toggle:focus-visible{outline:3px solid #83aaff;outline-offset:3px}
+.header-actions .header-social-toggle{height:100%;gap:8px}
+.header-actions .header-freelance{gap:8px}
+.header-actions .freelance-copy{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0}
+.header-actions .freelance-detail{color:#52668d;font-size:10px;font-weight:600;line-height:1.25;white-space:normal;word-break:keep-all;text-align:center}
+.header-actions .action-arrow,.header-actions .roky-ebook-link>span{color:#4665b7}
+@media(max-width:760px){.site-header .header-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.65fr) minmax(0,1fr);gap:7px;width:100%;margin-left:0}.site-header .header-actions .roky-ebook-link,.site-header .header-freelance,.site-header .header-social-toggle{width:100%;min-width:0;padding:7px 5px;font-size:11px}.site-header .header-social{width:100%;min-width:0}.header-actions .freelance-detail{font-size:10px}.header-actions .header-freelance .action-arrow{display:none}}
