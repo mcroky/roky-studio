@@ -148,3 +148,8 @@ html,body{max-width:100%;overflow-x:clip}
 .header-social-menu .header-social-link{justify-content:flex-start;min-height:44px;padding:10px 12px;font-size:12px}
 .header-social-menu .social-arrow{margin-left:auto}
 @media(max-width:760px){.site-header .header-social{order:2;width:auto;margin-left:auto}.header-social-menu{width:min(190px,calc(100vw - 36px))}}
+
+.header-freelance{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:9px 14px;border:1px solid #d6dff2;border-radius:10px;background:#f4f7ff;color:#263dda;font-size:12px;font-weight:800;white-space:nowrap}
+.header-freelance:hover{border-color:#8294ed;background:#eaf0ff}
+.header-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+@media(max-width:760px){.header-actions{order:2;margin-left:auto}.header-freelance{margin-left:0}.site-header .header-social{margin-left:0}}
