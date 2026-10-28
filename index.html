@@ -9,7 +9,7 @@
     <meta property="og:description" content="로키 워킷, 용사월드, 내일은 탁구왕, 스트레스 브레이크를 만나보세요." />
     <meta property="og:type" content="website" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20261026-music-diary" />
+    <link rel="stylesheet" href="styles.css?v=20261028-social-menu" />
     <link rel="stylesheet" href="bank-transfer.css?v=20261024-4" />
     <title>Roky Studio | 프로젝트 모아보기</title>
   <link rel="stylesheet" href="ebook-links.css?v=20261024-1" />
@@ -39,10 +39,13 @@
           <a href="#feedback">의견 보내기</a>
           <a class="roky-social-link roky-ebook-link" data-web-only-commerce href="https://litt.ly/roky.studio" target="_blank" rel="noopener noreferrer" aria-label="로키스튜디오 전자책 새 탭에서 열기">전자책 <span aria-hidden="true">↗</span></a>
         </nav>
-        <div class="header-social" aria-label="로키의 소셜 계정">
-          <a class="header-social-link header-social-x" href="https://x.com/loki60542" target="_blank" rel="me noopener noreferrer" aria-label="로키 X 계정 새 창에서 열기"><span class="social-mark" aria-hidden="true">𝕏</span><span>X 계정</span><span class="social-arrow" aria-hidden="true">↗</span></a>
-          <a class="header-social-link header-social-threads" href="https://www.threads.com/@loki60542" target="_blank" rel="me noopener noreferrer" aria-label="로키 스레드 계정 새 창에서 열기"><span class="social-mark" aria-hidden="true">@</span><span>스레드</span><span class="social-arrow" aria-hidden="true">↗</span></a>
-        </div>
+        <details class="header-social">
+          <summary class="header-social-toggle">SNS 계정 <span aria-hidden="true">⌄</span></summary>
+          <div class="header-social-menu" aria-label="로키의 소셜 계정">
+            <a class="header-social-link header-social-x" href="https://x.com/loki60542" target="_blank" rel="me noopener noreferrer" aria-label="로키 X 계정 새 창에서 열기"><span class="social-mark" aria-hidden="true">𝕏</span><span>X 계정</span><span class="social-arrow" aria-hidden="true">↗</span></a>
+            <a class="header-social-link header-social-threads" href="https://www.threads.com/@loki60542" target="_blank" rel="me noopener noreferrer" aria-label="로키 스레드 계정 새 창에서 열기"><span class="social-mark" aria-hidden="true">@</span><span>스레드</span><span class="social-arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </details>
       </div>
     </header>
 
@@ -394,6 +397,21 @@
     <script type="module" src="updates.mjs?v=20261026-music-diary"></script>
     <script src="projects.js?v=20261025-space-layout" defer></script>
     <script src="effects.js?v=20261021-2" defer></script>
+    <script>
+      (() => {
+        const menu = document.querySelector('.header-social');
+        if (!menu) return;
+        document.addEventListener('click', (event) => {
+          if (!menu.contains(event.target)) menu.open = false;
+        });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && menu.open) {
+            menu.open = false;
+            menu.querySelector('summary').focus();
+          }
+        });
+      })();
+    </script>
     <script src="bank-transfer.js?v=20261024-2" defer></script>
     <!-- Cloudflare Web Analytics: this public site token only records visits to Roky Studio. -->
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"09826592d2774b24b31f74a1ad6bc33b"}'></script>

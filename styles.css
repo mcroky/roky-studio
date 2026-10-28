@@ -136,3 +136,15 @@ html,body{max-width:100%;overflow-x:clip}
 .site-footer .roky-support-footer>p{font-size:11px;line-height:1.5;color:#c0c9dc}
 .site-footer .footer-top{display:inline-flex;align-items:center;min-height:44px;margin-left:0;white-space:nowrap}
 @media(max-width:760px){.site-footer .footer-inner{display:grid;grid-template-columns:1fr auto;gap:18px}.site-footer .footer-inner>.brand{grid-column:1;grid-row:1}.site-footer .footer-inner>span{grid-column:2;grid-row:1;margin-left:0;text-align:right}.site-footer .roky-support-footer{grid-column:1/-1;grid-row:2;width:100%}.site-footer .footer-workspace{grid-column:1;grid-row:3;width:auto;justify-self:start}.site-footer .footer-top{grid-column:2;grid-row:3;width:auto;justify-self:end}}
+
+/* Social links share a compact menu in the Studio header. */
+.site-header .header-social{position:relative;z-index:20;display:block;flex:0 0 auto}
+.header-social-toggle{display:flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:9px 15px;border:1px solid #d6dff2;border-radius:10px;background:#182033;color:#fff;font-size:12px;font-weight:800;list-style:none;cursor:pointer;white-space:nowrap}
+.header-social-toggle::-webkit-details-marker{display:none}
+.header-social-toggle:hover{background:#26345a}
+.header-social-toggle:focus-visible{outline:3px solid #83aaff;outline-offset:3px}
+.header-social[open] .header-social-toggle span{transform:rotate(180deg)}
+.header-social-menu{position:absolute;top:calc(100% + 8px);right:0;display:grid;gap:8px;width:190px;padding:10px;border:1px solid #e1e7f1;border-radius:12px;background:#fff;box-shadow:0 14px 35px #101d3a26}
+.header-social-menu .header-social-link{justify-content:flex-start;min-height:44px;padding:10px 12px;font-size:12px}
+.header-social-menu .social-arrow{margin-left:auto}
+@media(max-width:760px){.site-header .header-social{order:2;width:auto;margin-left:auto}.header-social-menu{width:min(190px,calc(100vw - 36px))}}
