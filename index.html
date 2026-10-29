@@ -61,7 +61,7 @@
           <div class="hero-actions">
             <a class="button button-primary" href="#projects">프로젝트 살펴보기 <span aria-hidden="true">↘</span></a>
             <a class="hero-secondary" href="#updates">업데이트 내역 <span aria-hidden="true">↗</span></a>
-            <span class="hero-count"><strong id="hero-project-count">11</strong> PROJECTS & COUNTING</span>
+            <span class="hero-count"><strong id="hero-project-count">12</strong> PROJECTS & COUNTING</span>
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -79,7 +79,7 @@
         <div class="shell">
           <div class="section-heading">
             <div>
-              <p class="section-kicker">THE COLLECTION <span id="project-range">01 — 11</span></p>
+              <p class="section-kicker">THE COLLECTION <span id="project-range">01 — 12</span></p>
               <h2 id="projects-title">Roky Studio의 프로젝트</h2>
               <p>짧게 둘러보고 바로 시작하세요. 자세한 소개는 펼쳐볼 수 있어요.</p>
             </div>
@@ -93,6 +93,19 @@
           <p class="project-result-count" id="project-result-count" role="status" aria-live="polite" hidden></p>
 
           <div class="project-grid">
+            <article class="project-card project-church" data-category="공간">
+              <div class="project-art screenshot-art"><img class="project-thumbnail" src="assets/together-church.png" alt="함께교회의 넓은 예배당과 귀여운 캐릭터, 본당별 참여 인원 화면" width="1265" height="712" loading="lazy" /></div>
+              <div class="project-content">
+                <div class="card-topline"><span class="category">온라인 교회 공간</span><span class="availability live"><i></i> 공개 테스트</span></div>
+                <h3>함께교회</h3>
+                <p class="project-summary">귀여운 캐릭터로 만나고, 마음을 나누는 예배당.</p>
+                <details class="project-details"><summary><span class="more-label">상세 보기</span><span class="less-label">설명 접기</span></summary>
+                  <p class="project-description">닉네임으로 입장해 같은 본당에서 걷고 앉으며 기도·찬양·인사 동작을 함께해요. 50명씩 본당을 자동 배정하고 참여 인원을 표시합니다. 모바일 조이스틱으로 이동하고 성경 66권을 읽을 수 있어요. 찬양을 누르면 기본 반주를 재생합니다. 현재 전체 100명 상한의 공개 테스트이며, 예배 방송·실제 찬양곡 녹음·음성 교제는 아직 연결하지 않았습니다.</p>
+                  <ul class="feature-list" aria-label="주요 특징"><li>본당 자동 배정</li><li>모바일 조이스틱</li><li>찬양 기본 반주</li></ul>
+                </details>
+                <a class="project-link" href="https://together-church.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="함께교회 새 창에서 입장하기">교회 입장하기 <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
             <article class="project-card project-emotion" data-category="도구">
               <div class="project-art screenshot-art"><img class="project-thumbnail" src="assets/emotion-atlas.svg" alt="초록색 바탕의 접힌 지도와 노란 해를 담은 감정지도 아이콘" width="128" height="128" loading="lazy" /></div>
               <div class="project-content">
@@ -266,6 +279,15 @@
             </div>
           </div>
           <div class="updates-grid" id="updates-latest">
+            <article class="update-card update-card-church">
+              <details class="update-details">
+                <summary><h3><span class="update-meta"><span class="update-project">함께교회</span><time datetime="2026-10-29">2026.10.29</time></span><span class="update-title">여러 본당에서 함께 만나요 <span>v0.1</span></span></h3></summary>
+                <div class="update-body">
+                  <p>본당당 50명 자동 배정과 전체·본당별 참여 인원을 추가했습니다. 모바일 화면을 넓히고 조이스틱 이동과 찬양 기본 반주·음소거·음량 조절도 추가했습니다. 전체 상한 100명의 공개 테스트이며 예배 방송과 음성은 다음 단계입니다.</p>
+                  <a href="https://together-church.onrender.com/" target="_blank" rel="noopener noreferrer">함께교회에서 확인하기 <span aria-hidden="true">↗</span></a>
+                </div>
+              </details>
+            </article>
             <article class="update-card update-card-emotion"><details class="update-details"><summary><h3><span class="update-meta"><span>감정지도</span><time datetime="2026-10-29">2026.10.29</time></span><span class="update-title">휴대폰에서 더 편하게 그려요 <span>v0.14.0</span></span></h3></summary><div class="update-body"><p>지도 공간을 넓히고 도구·속성을 하단 패널에 모았습니다. 작은 사물의 터치 선택과 미세 조절 버튼, 이동 도구·두 손가락 확대/이동을 개선하고 크기 조절 취소 오류를 수정했습니다.</p><details class="update-history"><summary>지난 업데이트 내역</summary><ol><li><time datetime="2026-10-29">v0.13.0</time><span>웹 베타 첫 공개 · 월간 모아보기와 전체 백업/사본 복구</span></li></ol></details><a href="https://mcroky.github.io/emotion-atlas/" target="_blank" rel="noopener noreferrer">웹 베타에서 확인하기 <span aria-hidden="true">↗</span></a></div></details></article>
             <article class="update-card update-card-music">
               <details class="update-details">
@@ -381,7 +403,7 @@
             <input type="hidden" name="_url" value="https://mcroky.github.io/roky-studio/" />
             <div class="feedback-honeypot" aria-hidden="true"><label for="feedback-website">웹사이트</label><input id="feedback-website" name="_honey" type="text" tabindex="-1" autocomplete="off" /></div>
             <label for="feedback-project">어떤 프로젝트에 대한 의견인가요?</label>
-            <select id="feedback-project" name="project" required><option value="" disabled selected>프로젝트를 선택해 주세요</option><option value="감정지도">감정지도</option><option value="어디서 만들었지?">어디서 만들었지?</option><option value="로키의 음악일기">로키의 음악일기</option><option value="오늘의 퍼즐">오늘의 퍼즐</option><option value="작은정원">작은정원</option><option value="로키 워킷">로키 워킷</option><option value="용사월드">용사월드</option><option value="내일은 탁구왕">내일은 탁구왕</option><option value="스트레스 브레이크">스트레스 브레이크</option><option value="우리 동네 런닝 코스">우리 동네 런닝 코스</option><option value="코트러시">코트러시 · COURT RUSH</option><option value="Roky Studio 홈페이지">Roky Studio 홈페이지</option><option value="기타">기타</option></select>
+            <select id="feedback-project" name="project" required><option value="" disabled selected>프로젝트를 선택해 주세요</option><option value="감정지도">감정지도</option><option value="어디서 만들었지?">어디서 만들었지?</option><option value="로키의 음악일기">로키의 음악일기</option><option value="오늘의 퍼즐">오늘의 퍼즐</option><option value="작은정원">작은정원</option><option value="로키 워킷">로키 워킷</option><option value="용사월드">용사월드</option><option value="내일은 탁구왕">내일은 탁구왕</option><option value="스트레스 브레이크">스트레스 브레이크</option><option value="우리 동네 런닝 코스">우리 동네 런닝 코스</option><option value="코트러시">코트러시 · COURT RUSH</option><option value="함께교회">함께교회</option><option value="Roky Studio 홈페이지">Roky Studio 홈페이지</option><option value="기타">기타</option></select>
             <div class="feedback-fields"><div><label for="feedback-name">이름 <span>선택</span></label><input id="feedback-name" name="name" type="text" maxlength="60" placeholder="어떻게 불러드릴까요?" autocomplete="name" /></div><div><label for="feedback-email">답장 받을 이메일 <span>선택</span></label><input id="feedback-email" name="email" type="email" maxlength="120" placeholder="답장을 원할 때만 입력" autocomplete="email" /></div></div>
             <label for="feedback-message">의견</label>
             <textarea id="feedback-message" name="message" rows="6" minlength="10" maxlength="2000" placeholder="프로젝트를 사용하며 느낀 점이나 아이디어를 적어주세요." required></textarea>
