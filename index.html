@@ -61,7 +61,7 @@
           <div class="hero-actions">
             <a class="button button-primary" href="#projects">프로젝트 살펴보기 <span aria-hidden="true">↘</span></a>
             <a class="hero-secondary" href="#updates">업데이트 내역 <span aria-hidden="true">↗</span></a>
-            <span class="hero-count"><strong id="hero-project-count">10</strong> PROJECTS & COUNTING</span>
+            <span class="hero-count"><strong id="hero-project-count">11</strong> PROJECTS & COUNTING</span>
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -79,7 +79,7 @@
         <div class="shell">
           <div class="section-heading">
             <div>
-              <p class="section-kicker">THE COLLECTION <span id="project-range">01 — 10</span></p>
+              <p class="section-kicker">THE COLLECTION <span id="project-range">01 — 11</span></p>
               <h2 id="projects-title">Roky Studio의 프로젝트</h2>
               <p>짧게 둘러보고 바로 시작하세요. 자세한 소개는 펼쳐볼 수 있어요.</p>
             </div>
@@ -93,6 +93,16 @@
           <p class="project-result-count" id="project-result-count" role="status" aria-live="polite" hidden></p>
 
           <div class="project-grid">
+            <article class="project-card project-emotion" data-category="도구">
+              <div class="project-art screenshot-art"><img class="project-thumbnail" src="assets/emotion-atlas.svg" alt="초록색 바탕의 접힌 지도와 노란 해를 담은 감정지도 아이콘" width="128" height="128" loading="lazy" /></div>
+              <div class="project-content">
+                <div class="card-topline"><span class="category">그림으로 남기는 마음의 풍경</span><span class="availability live"><i></i> 웹 베타</span></div>
+                <h3>감정지도</h3>
+                <p class="project-summary">색과 사물, 작은 움직임으로 오늘의 마음을 그려보세요.</p>
+                <details class="project-details"><summary><span class="more-label">상세 보기</span><span class="less-label">설명 접기</span></summary><p class="project-description">자유롭게 그리고 사물과 효과를 놓아 마음속 풍경을 만듭니다. 달력·월간 모아보기·두 지도 비교로 기록을 돌아보고, 나의 표현을 다른 지도에 다시 사용할 수 있어요. 지도와 메모는 브라우저에 저장하며 전체 백업/복구를 지원합니다. 백업 파일은 암호화되지 않아요.</p><ul class="feature-list" aria-label="주요 특징"><li>그리기·사물·움직임 효과</li><li>월간 모아보기·전체 백업</li><li>한국어·영어·일본어·중국어</li></ul></details>
+                <a class="project-link" href="https://mcroky.github.io/emotion-atlas/" target="_blank" rel="noopener noreferrer" aria-label="감정지도 웹 베타 새 창에서 열기">마음 그리기 <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
             <article class="project-card project-music" data-category="도구">
               <div class="project-art screenshot-art music-screenshot"><img class="project-thumbnail" src="assets/music-diary.webp" alt="따뜻한 창가와 식물, 턴테이블이 있는 음악일기의 다락방" width="1536" height="1024" loading="lazy" /></div>
               <div class="project-content">
@@ -249,13 +259,14 @@
         <div class="shell">
           <div class="section-heading updates-heading">
             <div>
-              <p class="section-kicker">WHAT'S NEW <span id="updates-as-of">2026.10.26 기준</span></p>
+              <p class="section-kicker">WHAT'S NEW <span id="updates-as-of">2026.10.29 기준</span></p>
               <h2 id="updates-title">업데이트 내역</h2>
               <p>최신 3개만 먼저 보여드려요. 나머지는 더보기에서 확인하세요.</p>
               <p class="updates-sync-status" id="updates-sync-status" role="status" aria-live="polite"></p>
             </div>
           </div>
           <div class="updates-grid" id="updates-latest">
+            <article class="update-card update-card-emotion"><details class="update-details"><summary><h3><span class="update-meta"><span>감정지도</span><time datetime="2026-10-29">2026.10.29</time></span><span class="update-title">감정지도 웹 베타 첫 공개 <span>v0.13.0</span></span></h3></summary><div class="update-body"><p>그리기·사물·움직임 효과로 마음의 풍경을 만들고 월간 모아보기로 돌아봅니다. 지도·휴지통·메모·나의 표현 전체 백업/사본 복구를 지원합니다. 기록은 브라우저에 저장되며 Android 스토어 출시는 아직 준비 중입니다.</p><details class="update-history" hidden><summary>지난 업데이트 내역</summary><ol></ol></details><a href="https://mcroky.github.io/emotion-atlas/" target="_blank" rel="noopener noreferrer">웹 베타에서 확인하기 <span aria-hidden="true">↗</span></a></div></details></article>
             <article class="update-card update-card-music">
               <details class="update-details">
                 <summary><h3><span class="update-meta"><span class="update-project">로키의 음악일기</span><time datetime="2026-10-26">2026.10.26</time></span><span class="update-title">로키의 음악일기 첫 공개 <span>v0.5.0</span></span></h3></summary>
@@ -370,7 +381,7 @@
             <input type="hidden" name="_url" value="https://mcroky.github.io/roky-studio/" />
             <div class="feedback-honeypot" aria-hidden="true"><label for="feedback-website">웹사이트</label><input id="feedback-website" name="_honey" type="text" tabindex="-1" autocomplete="off" /></div>
             <label for="feedback-project">어떤 프로젝트에 대한 의견인가요?</label>
-            <select id="feedback-project" name="project" required><option value="" disabled selected>프로젝트를 선택해 주세요</option><option value="어디서 만들었지?">어디서 만들었지?</option><option value="로키의 음악일기">로키의 음악일기</option><option value="오늘의 퍼즐">오늘의 퍼즐</option><option value="작은정원">작은정원</option><option value="로키 워킷">로키 워킷</option><option value="용사월드">용사월드</option><option value="내일은 탁구왕">내일은 탁구왕</option><option value="스트레스 브레이크">스트레스 브레이크</option><option value="우리 동네 런닝 코스">우리 동네 런닝 코스</option><option value="코트러시">코트러시 · COURT RUSH</option><option value="Roky Studio 홈페이지">Roky Studio 홈페이지</option><option value="기타">기타</option></select>
+            <select id="feedback-project" name="project" required><option value="" disabled selected>프로젝트를 선택해 주세요</option><option value="감정지도">감정지도</option><option value="어디서 만들었지?">어디서 만들었지?</option><option value="로키의 음악일기">로키의 음악일기</option><option value="오늘의 퍼즐">오늘의 퍼즐</option><option value="작은정원">작은정원</option><option value="로키 워킷">로키 워킷</option><option value="용사월드">용사월드</option><option value="내일은 탁구왕">내일은 탁구왕</option><option value="스트레스 브레이크">스트레스 브레이크</option><option value="우리 동네 런닝 코스">우리 동네 런닝 코스</option><option value="코트러시">코트러시 · COURT RUSH</option><option value="Roky Studio 홈페이지">Roky Studio 홈페이지</option><option value="기타">기타</option></select>
             <div class="feedback-fields"><div><label for="feedback-name">이름 <span>선택</span></label><input id="feedback-name" name="name" type="text" maxlength="60" placeholder="어떻게 불러드릴까요?" autocomplete="name" /></div><div><label for="feedback-email">답장 받을 이메일 <span>선택</span></label><input id="feedback-email" name="email" type="email" maxlength="120" placeholder="답장을 원할 때만 입력" autocomplete="email" /></div></div>
             <label for="feedback-message">의견</label>
             <textarea id="feedback-message" name="message" rows="6" minlength="10" maxlength="2000" placeholder="프로젝트를 사용하며 느낀 점이나 아이디어를 적어주세요." required></textarea>
