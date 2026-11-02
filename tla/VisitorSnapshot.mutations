@@ -4,10 +4,24 @@ only Success
 -   /\ artifact' = "counts"
 +   /\ artifact' = "secret"
 
+mutation discard prior daily history during archiving
+detects ArchivedHistoryRetained
+only Success
+-  /\ archive' = "retained"
++  /\ archive' = "lost"
+
 mutation continue deployment after a failed Cloudflare query
 detects FailureKeepsPrevious
 only Failed
+- FetchFailed ==
+-   /\ phase = "history"
+-   /\ HasCredentials
+-   /\ ~FetchOk
 -   /\ phase' = "failed"
++ FetchFailed ==
++   /\ phase = "history"
++   /\ HasCredentials
++   /\ ~FetchOk
 +   /\ phase' = "ready"
 
 mutation accept failed query as validated counts

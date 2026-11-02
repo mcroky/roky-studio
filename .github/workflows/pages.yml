@@ -33,12 +33,7 @@ jobs:
         env:
           CF_ANALYTICS_TOKEN: ${{ secrets.CF_ANALYTICS_TOKEN }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
-        run: |
-          if [ -z "$CF_ANALYTICS_TOKEN" ] || [ -z "$CF_ACCOUNT_ID" ]; then
-            echo '::notice::Cloudflare analytics credentials are not configured; the counter will show its preparing state.'
-          else
-            node scripts/build-visitor-count.mjs
-          fi
+        run: node scripts/build-visitor-count.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

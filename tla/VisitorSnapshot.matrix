@@ -1,7 +1,8 @@
 spec VisitorSnapshot.tla
-check INVARIANTS NoSecretPublished FailureKeepsPrevious PublishedCountsAreValidated
+check INVARIANTS NoSecretPublished FailureKeepsPrevious PublishedCountsAreValidated ArchivedHistoryRetained
 reach PublishedCounts | Success
 reach FailedFetch | Failed
-run Success | HasCredentials=TRUE FetchOk=TRUE
-run Failed | HasCredentials=TRUE FetchOk=FALSE
-run Unconfigured | HasCredentials=FALSE FetchOk=TRUE
+run Success | HasCredentials=TRUE HistoryOk=TRUE FetchOk=TRUE
+run Failed | HasCredentials=TRUE HistoryOk=TRUE FetchOk=FALSE
+run HistoryUnavailable | HasCredentials=TRUE HistoryOk=FALSE FetchOk=TRUE
+run Unconfigured | HasCredentials=FALSE HistoryOk=TRUE FetchOk=TRUE

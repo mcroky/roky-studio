@@ -1,0 +1,3 @@
+tla/*.tla text eol=lf
+tla/*.matrix text eol=lf
+tla/*.mutations text eol=lf

@@ -1,65 +1,84 @@
 --------------------------- MODULE VisitorSnapshot ---------------------------
 EXTENDS TLC
 
-\* Models .github/workflows/pages.yml (snapshot step and upload) and
-\* scripts/build-visitor-count.mjs (query, validation, JSON write).
-\* Assumptions: the previous Pages deployment contains no secret; a successful
-\* Cloudflare response is valid only after parseVisitorResponse accepts it;
-\* a failed GitHub Actions step prevents the upload step from running.
-\* FetchOk=FALSE represents HTTP, GraphQL, or response validation failure.
+\* Models read-public-history, validated Cloudflare query, archive and deploy.
+\* A failed step prevents Pages upload. HistoryOk includes the first-run 404
+\* bootstrap or a validated prior public history; FetchOk includes schema checks.
+\* The abstract "retained" state means archived days are copied before append.
 
-CONSTANTS HasCredentials, FetchOk
+CONSTANTS HasCredentials, HistoryOk, FetchOk
 ASSUME /\ HasCredentials \in BOOLEAN
+       /\ HistoryOk \in BOOLEAN
        /\ FetchOk \in BOOLEAN
 
-VARIABLES phase, artifact, public
-vars == <<phase, artifact, public>>
+VARIABLES phase, artifact, archive, public, publicHistory
+vars == <<phase, artifact, archive, public, publicHistory>>
 
 Init == /\ phase = "start"
         /\ artifact = "none"
+        /\ archive = "none"
         /\ public = "old"
+        /\ publicHistory = "old"
 
-SkipWithoutCredentials ==
+MissingCredentials ==
   /\ phase = "start"
   /\ ~HasCredentials
-  /\ phase' = "ready"
-  /\ UNCHANGED <<artifact, public>>
+  /\ phase' = "failed"
+  /\ UNCHANGED <<artifact, archive, public, publicHistory>>
+
+ReadHistory ==
+  /\ phase = "start"
+  /\ HasCredentials
+  /\ HistoryOk
+  /\ phase' = "history"
+  /\ UNCHANGED <<artifact, archive, public, publicHistory>>
+
+HistoryFailed ==
+  /\ phase = "start"
+  /\ HasCredentials
+  /\ ~HistoryOk
+  /\ phase' = "failed"
+  /\ UNCHANGED <<artifact, archive, public, publicHistory>>
 
 FetchValid ==
-  /\ phase = "start"
+  /\ phase = "history"
   /\ HasCredentials
   /\ FetchOk
   /\ phase' = "validated"
-  /\ UNCHANGED <<artifact, public>>
+  /\ UNCHANGED <<artifact, archive, public, publicHistory>>
 
 FetchFailed ==
-  /\ phase = "start"
+  /\ phase = "history"
   /\ HasCredentials
   /\ ~FetchOk
   /\ phase' = "failed"
-  /\ UNCHANGED <<artifact, public>>
+  /\ UNCHANGED <<artifact, archive, public, publicHistory>>
 
 WriteSnapshot ==
   /\ phase = "validated"
   /\ phase' = "ready"
   /\ artifact' = "counts"
-  /\ UNCHANGED public
+  /\ archive' = "retained"
+  /\ UNCHANGED <<public, publicHistory>>
 
 Deploy ==
   /\ phase = "ready"
   /\ phase' = "deployed"
   /\ public' = artifact
-  /\ UNCHANGED artifact
+  /\ publicHistory' = archive
+  /\ UNCHANGED <<artifact, archive>>
 
 Done == /\ phase \in {"deployed", "failed"}
         /\ UNCHANGED vars
 
-Next == SkipWithoutCredentials \/ FetchValid \/ FetchFailed \/ WriteSnapshot \/ Deploy \/ Done
+Next == MissingCredentials \/ ReadHistory \/ HistoryFailed \/ FetchValid \/ FetchFailed \/ WriteSnapshot \/ Deploy \/ Done
 Spec == Init /\ [][Next]_vars
 
 NoSecretPublished == artifact # "secret" /\ public # "secret"
-FailureKeepsPrevious == (HasCredentials /\ ~FetchOk) => public = "old"
-PublishedCountsAreValidated == public = "counts" => (HasCredentials /\ FetchOk)
+FailureKeepsPrevious == (~HasCredentials \/ ~HistoryOk \/ ~FetchOk) =>
+  (public = "old" /\ publicHistory = "old")
+PublishedCountsAreValidated == public = "counts" => (HasCredentials /\ HistoryOk /\ FetchOk)
+ArchivedHistoryRetained == publicHistory \in {"old", "retained"}
 
 PublishedCounts == public = "counts"
 FailedFetch == phase = "failed"
