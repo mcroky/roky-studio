@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '12 * * * *'
 
 permissions:
   contents: read
@@ -22,6 +24,21 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check visitor count logic
+        run: node --test scripts/visitor-count-core.test.mjs scripts/build-visitor-count.test.mjs
+      - name: Generate public visitor snapshot
+        env:
+          CF_ANALYTICS_TOKEN: ${{ secrets.CF_ANALYTICS_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CF_ANALYTICS_TOKEN" ] || [ -z "$CF_ACCOUNT_ID" ]; then
+            echo '::notice::Cloudflare analytics credentials are not configured; the counter will show its preparing state.'
+          else
+            node scripts/build-visitor-count.mjs
+          fi
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

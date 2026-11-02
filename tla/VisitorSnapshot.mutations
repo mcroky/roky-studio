@@ -1,0 +1,19 @@
+mutation write the API token into the Pages artifact
+detects NoSecretPublished
+only Success
+-   /\ artifact' = "counts"
++   /\ artifact' = "secret"
+
+mutation continue deployment after a failed Cloudflare query
+detects FailureKeepsPrevious
+only Failed
+-   /\ phase' = "failed"
++   /\ phase' = "ready"
+
+mutation accept failed query as validated counts
+detects PublishedCountsAreValidated
+only Failed
+-   /\ ~FetchOk
+-   /\ phase' = "failed"
++   /\ ~FetchOk
++   /\ phase' = "validated"

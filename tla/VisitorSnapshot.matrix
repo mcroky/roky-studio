@@ -1,0 +1,7 @@
+spec VisitorSnapshot.tla
+check INVARIANTS NoSecretPublished FailureKeepsPrevious PublishedCountsAreValidated
+reach PublishedCounts | Success
+reach FailedFetch | Failed
+run Success | HasCredentials=TRUE FetchOk=TRUE
+run Failed | HasCredentials=TRUE FetchOk=FALSE
+run Unconfigured | HasCredentials=FALSE FetchOk=TRUE
