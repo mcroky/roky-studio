@@ -9,7 +9,7 @@
     <meta property="og:description" content="로키 워킷, 용사월드, 내일은 탁구왕, 스트레스 브레이크를 만나보세요." />
     <meta property="og:type" content="website" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20261028-header-actions" />
+    <link rel="stylesheet" href="styles.css?v=20261102-visitors" />
     <link rel="stylesheet" href="bank-transfer.css?v=20261024-4" />
     <title>Roky Studio | 프로젝트 모아보기</title>
   <link rel="stylesheet" href="ebook-links.css?v=20261024-1" />
@@ -73,6 +73,12 @@ a[href="#bank-transfer"] { display: none !important; }
             <a class="button button-primary" href="#projects">프로젝트 살펴보기 <span aria-hidden="true">↘</span></a>
             <a class="hero-secondary" href="#updates">업데이트 내역 <span aria-hidden="true">↗</span></a>
             <span class="hero-count"><strong id="hero-project-count">12</strong> PROJECTS & COUNTING</span>
+          </div>
+          <div class="visitor-counter" aria-label="Roky Studio 방문 통계">
+            <div class="visitor-counter-icon" aria-hidden="true">◉</div>
+            <div class="visitor-counter-stat"><span id="visitor-today-label">오늘 방문</span><strong id="visitor-today">—</strong></div>
+            <div class="visitor-counter-stat"><span id="visitor-week-label">최근 7일</span><strong id="visitor-week">—</strong></div>
+            <p id="visitor-counter-status" role="status" aria-live="polite">방문 횟수 집계 준비 중</p>
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -290,6 +296,12 @@ a[href="#bank-transfer"] { display: none !important; }
             </div>
           </div>
           <div class="updates-grid" id="updates-latest">
+            <article class="update-card update-card-studio">
+              <details class="update-details">
+                <summary><h3><span class="update-meta"><span class="update-project">Roky Studio</span><time datetime="2026-11-02">2026.11.02</time></span><span class="update-title">방문 횟수를 홈페이지에서 확인하세요</span></h3></summary>
+                <div class="update-body"><p>Cloudflare Web Analytics의 오늘·최근 7일 방문 횟수를 홈페이지 첫 화면에 표시합니다. 집계는 한국 시간 기준이며 매시간 갱신을 시도합니다.</p><a href="#top">방문 카운터 보기 <span aria-hidden="true">↑</span></a></div>
+              </details>
+            </article>
             <article class="update-card update-card-church">
               <details class="update-details">
                 <summary><h3><span class="update-meta"><span class="update-project">함께교회</span><time datetime="2026-10-30">2026.10.30</time></span><span class="update-title">PC 찬양 영상, 오른쪽 작은 창으로 <span>v0.1</span></span></h3></summary>
@@ -443,6 +455,7 @@ a[href="#bank-transfer"] { display: none !important; }
     </footer>
     <script type="module" src="updates.mjs?v=20261026-music-diary"></script>
     <script src="projects.js?v=20261025-space-layout" defer></script>
+    <script src="visitor-counter.js?v=20261102-1" defer></script>
     <script src="effects.js?v=20261021-2" defer></script>
     <script>
       (() => {
