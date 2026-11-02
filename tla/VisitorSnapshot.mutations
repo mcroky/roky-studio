@@ -4,7 +4,7 @@ only Success
 -   /\ artifact' = "counts"
 +   /\ artifact' = "secret"
 
-mutation discard prior daily history during archiving
+mutation discard prior cumulative total during archiving
 detects ArchivedHistoryRetained
 only Success
 -  /\ archive' = "retained"

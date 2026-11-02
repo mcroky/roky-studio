@@ -1,5 +1,6 @@
 {
+  "method": "daily",
   "startDate": "2026-10-21",
   "lastArchivedDate": "2026-10-20",
-  "days": {}
+  "archivedVisits": 0
 }

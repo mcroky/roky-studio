@@ -14,12 +14,17 @@ test('the deployed snapshot contains validated counts and no API secret', async 
   process.env.CF_ANALYTICS_TOKEN = 'test-secret-never-publish';
   let request;
   globalThis.fetch = async (url, options) => {
-    if (String(url).includes('visitor-history.json')) return { ok: true, json: async () => JSON.parse(originalHistory) };
+    if (String(url).includes('visitor-history.json')) return {
+      ok: true,
+      json: async () => ({ startDate: '2026-10-21', lastArchivedDate: '2026-10-26', days: {} }),
+    };
     request = { url, options };
-    const today = new Date().toISOString().slice(0, 10);
+    const aliases = [...JSON.parse(options.body).query.matchAll(/\bd(\d+): rumPageloadEventsAdaptiveGroups/g)].map((match) => `d${match[1]}`);
+    const days = Object.fromEntries(aliases.map((alias) => [alias, []]));
+    days[aliases.at(-1)] = [{ sum: { visits: 17 } }];
     return { ok: true, json: async () => ({ data: { viewer: { accounts: [{
       today: [{ sum: { visits: 3 } }],
-      days: [{ dimensions: { date: today }, sum: { visits: 17 } }],
+      ...days,
     }] } } }) };
   };
 
@@ -34,6 +39,7 @@ test('the deployed snapshot contains validated counts and no API secret', async 
     assert.equal(request.options.headers.Authorization, 'Bearer test-secret-never-publish');
     const body = JSON.parse(request.options.body);
     assert.match(body.query, /requestPath_like: "\/roky-studio\/%"/);
+    assert.match(body.query, /datetime_geq: "2026-10-21T00:00:00.000Z"/);
     assert.equal(body.variables.accountTag, 'test-account');
   } finally {
     globalThis.fetch = originalFetch;
