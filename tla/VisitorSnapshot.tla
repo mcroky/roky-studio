@@ -4,7 +4,8 @@ EXTENDS TLC
 \* Models read-public-history, validated Cloudflare query, archive and deploy.
 \* A failed step prevents Pages upload. HistoryOk includes the first-run 404
 \* bootstrap or a validated prior public history; FetchOk includes schema checks.
-\* The abstract "retained" state means archived days are copied before append.
+\* The abstract "retained" state means the saved cumulative total is kept
+\* while only newly completed days are added.
 
 CONSTANTS HasCredentials, HistoryOk, FetchOk
 ASSUME /\ HasCredentials \in BOOLEAN

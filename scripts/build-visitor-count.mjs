@@ -12,23 +12,24 @@ const publishedHistory = await fetch(`https://mcroky.github.io/roky-studio/visit
   signal: AbortSignal.timeout(15000),
 });
 if (publishedHistory.ok) {
-  history = await publishedHistory.json();
+  const previous = await publishedHistory.json();
+  if (previous.method === 'daily') history = previous;
 } else if (publishedHistory.status !== 404 || new Date().toISOString().slice(0, 10) > '2026-11-03') {
   throw new Error(`Published visitor history unavailable: HTTP ${publishedHistory.status}`);
 }
 const windows = getVisitorWindows(history);
-const query = `query VisitorCounts($accountTag: String!, $todayStart: Time!, $queryStart: Time!, $end: Time!) {
+const dailyFields = windows.dailyWindows.map((day, i) => `d${i}: rumPageloadEventsAdaptiveGroups(
+        filter: { requestHost: "mcroky.github.io", requestPath_like: "/roky-studio/%", datetime_geq: "${day.start}", datetime_lt: "${day.end}" }
+        limit: 1
+      ) { sum { visits } }`).join('\n');
+const query = `query VisitorCounts($accountTag: String!, $todayStart: Time!, $end: Time!) {
   viewer {
     accounts(filter: { accountTag: $accountTag }) {
       today: rumPageloadEventsAdaptiveGroups(
         filter: { requestHost: "mcroky.github.io", requestPath_like: "/roky-studio/%", datetime_geq: $todayStart, datetime_lt: $end }
         limit: 1
       ) { sum { visits } }
-      days: rumPageloadEventsAdaptiveGroups(
-        filter: { requestHost: "mcroky.github.io", requestPath_like: "/roky-studio/%", datetime_geq: $queryStart, datetime_lt: $end }
-        limit: 32
-        orderBy: [date_ASC]
-      ) { dimensions { date } sum { visits } }
+      ${dailyFields}
     }
   }
 }`;
@@ -44,7 +45,6 @@ const response = await fetch('https://api.cloudflare.com/client/v4/graphql', {
     variables: {
       accountTag,
       todayStart: windows.todayStart,
-      queryStart: windows.queryStart,
       end: windows.end,
     },
   }),
