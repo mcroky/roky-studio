@@ -48,6 +48,8 @@ jobs:
           VISITOR_WORKER_URL: ${{ steps.worker.outputs.deployment-url }}
           REQUIRE_VISITOR_WORKER: ${{ steps.worker.outcome == 'success' }}
         run: node scripts/write-visitor-api.mjs
+      - name: Remove Worker deploy files from Pages artifact
+        run: rm -rf worker/node_modules worker/.wrangler
       - name: Generate public visitor snapshot
         if: steps.worker.outcome != 'success'
         env:
