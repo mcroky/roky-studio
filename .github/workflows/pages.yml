@@ -4,8 +4,6 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-  schedule:
-    - cron: '35 * * * *'
 
 permissions:
   contents: read
@@ -19,6 +17,8 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      WORKER_DEPLOY_TOKEN: ${{ secrets.CF_WORKER_DEPLOY_TOKEN }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -28,8 +28,28 @@ jobs:
         with:
           node-version: '22'
       - name: Check visitor count logic
-        run: node --test scripts/visitor-count-core.test.mjs scripts/build-visitor-count.test.mjs
+        run: node --test scripts/visitor-count-core.test.mjs scripts/build-visitor-count.test.mjs worker/index.test.mjs
+      - name: Deploy visitor API
+        id: worker
+        if: env.WORKER_DEPLOY_TOKEN != ''
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CF_WORKER_DEPLOY_TOKEN }}
+          accountId: ${{ vars.CF_ACCOUNT_ID }}
+          wranglerVersion: '4'
+          workingDirectory: worker
+          command: deploy
+          secrets: |
+            CF_ANALYTICS_TOKEN
+        env:
+          CF_ANALYTICS_TOKEN: ${{ secrets.CF_ANALYTICS_TOKEN }}
+      - name: Configure visitor API URL
+        env:
+          VISITOR_WORKER_URL: ${{ steps.worker.outputs.deployment-url }}
+          REQUIRE_VISITOR_WORKER: ${{ steps.worker.outcome == 'success' }}
+        run: node scripts/write-visitor-api.mjs
       - name: Generate public visitor snapshot
+        if: steps.worker.outcome != 'success'
         env:
           CF_ANALYTICS_TOKEN: ${{ secrets.CF_ANALYTICS_TOKEN }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}

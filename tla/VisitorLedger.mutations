@@ -1,0 +1,23 @@
+mutation add an archived day twice on a later refresh
+detects ArchiveOnce
+only ThreeDays
+-                /\ pendingArchive' = archived + (nowDay - archivedThrough - 1)
++                /\ pendingArchive' = archived + nowDay
+
+mutation persist a failed query as if it had produced a new day
+detects FailedFetchKeepsArchive
+only Failure
+-                /\ archived' = archived
++                /\ archived' = archived + 1
+
+mutation archive the current incomplete day
+detects NoFutureArchive
+only ThreeDays
+-                /\ pendingThrough' = nowDay - 1
++                /\ pendingThrough' = nowDay
+
+mutation enter an impossible refresh phase
+detects TypeOK
+only ThreeDays
+-                /\ phase' = "fetch"
++                /\ phase' = "corrupt"
