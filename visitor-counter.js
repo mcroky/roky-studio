@@ -14,6 +14,8 @@
     zh: { today: '今日访问', total: '累计访问', waiting: '正在统计访问次数', updated: 'Cloudflare访问次数 · {time}确认', dated: '{date}访问', title: 'Roky Studio访问次数' },
   };
   let snapshot = null;
+  let apiEndpoint = null;
+  let lastApiAttempt = 0;
 
   function language() {
     const code = (window.RokyI18n?.language || document.documentElement.lang || 'ko').slice(0, 2);
@@ -48,22 +50,41 @@
   window.addEventListener('roky:language', render);
   render();
 
-  const url = new URL('visitor-count.json', document.baseURI);
-  url.searchParams.set('hour', String(Math.floor(Date.now() / 3600000)));
-  fetch(url, { cache: 'no-store' })
-    .then((response) => {
-      if (!response.ok) throw new Error('Visitor snapshot unavailable');
-      return response.json();
-    })
-    .then((data) => {
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(data.date) || !Number.isFinite(Date.parse(data.updatedAt)) ||
-          !Number.isInteger(data.todayVisits) || data.todayVisits < 0 ||
-          !Number.isInteger(data.totalVisits) || data.totalVisits < 0 ||
-          !/^\d{4}-\d{2}-\d{2}$/.test(data.lastObservedDate)) {
-        throw new Error('Invalid visitor snapshot');
-      }
+  function valid(data) {
+    return /^\d{4}-\d{2}-\d{2}$/.test(data?.date) && Number.isFinite(Date.parse(data.updatedAt)) &&
+      Number.isSafeInteger(data.todayVisits) && data.todayVisits >= 0 &&
+      Number.isSafeInteger(data.totalVisits) && data.totalVisits >= 0 &&
+      /^\d{4}-\d{2}-\d{2}$/.test(data.lastObservedDate);
+  }
+
+  async function load(url) {
+    const response = await fetch(url, { cache: 'no-store' });
+    if (!response.ok) throw new Error('Visitor snapshot unavailable');
+    const data = await response.json();
+    if (!valid(data)) throw new Error('Invalid visitor snapshot');
+    if (!snapshot || Date.parse(data.updatedAt) >= Date.parse(snapshot.updatedAt)) {
       snapshot = data;
       render();
+    }
+  }
+
+  async function refreshApi() {
+    if (!apiEndpoint || document.hidden || Date.now() - lastApiAttempt < 60000) return;
+    lastApiAttempt = Date.now();
+    try { await load(apiEndpoint); } catch { /* Keep the latest verified snapshot. */ }
+  }
+
+  load(new URL('visitor-count.json', document.baseURI)).catch(() => {});
+  fetch(new URL('visitor-api.json', document.baseURI), { cache: 'no-store' })
+    .then((response) => response.ok ? response.json() : null)
+    .then((config) => {
+      if (!config?.endpoint) return;
+      const endpoint = new URL(config.endpoint);
+      if (endpoint.protocol !== 'https:' || !endpoint.hostname.endsWith('.workers.dev') || endpoint.pathname !== '/visits') return;
+      apiEndpoint = endpoint.href;
+      refreshApi();
+      setInterval(refreshApi, 10 * 60 * 1000);
+      document.addEventListener('visibilitychange', refreshApi);
     })
-    .catch(() => { /* Keep the honest 'preparing' state until a valid snapshot is deployed. */ });
+    .catch(() => {});
 })();

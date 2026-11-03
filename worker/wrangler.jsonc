@@ -1,0 +1,16 @@
+{
+  "name": "roky-studio-visits",
+  "main": "index.mjs",
+  "compatibility_date": "2026-10-21",
+  "workers_dev": true,
+  "triggers": { "crons": ["0 */2 * * *"] },
+  "vars": { "CF_ACCOUNT_ID": "ccd8b203dac1cdd8244ce52c91315ebf" },
+  "durable_objects": {
+    "bindings": [
+      { "name": "VISITOR_LEDGER", "class_name": "VisitorLedger" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["VisitorLedger"] }
+  ]
+}

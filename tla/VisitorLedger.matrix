@@ -1,0 +1,7 @@
+spec VisitorLedger.tla
+check INVARIANTS TypeOK ArchiveOnce NoFutureArchive FailedFetchKeepsArchive
+reach ArchiveReady | ThreeDays
+reach FetchFailed | Failure
+run ZeroDays | MaxDay=0
+run ThreeDays | MaxDay=3
+run Failure | MaxDay=2
