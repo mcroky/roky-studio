@@ -11,12 +11,13 @@ if (endpoint) {
   if (!response.ok) throw new Error(`Visitor Worker HTTP ${response.status}`);
   const { history, stale, ...snapshot } = await response.json();
   validateHistory(history);
-  if (stale || !/^\d{4}-\d{2}-\d{2}$/.test(snapshot.date) ||
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(snapshot.date) ||
       !Number.isFinite(Date.parse(snapshot.updatedAt)) ||
       !Number.isSafeInteger(snapshot.todayVisits) || snapshot.todayVisits < 0 ||
       !Number.isSafeInteger(snapshot.totalVisits) || snapshot.totalVisits < 0) {
     throw new Error('Visitor Worker returned an invalid snapshot');
   }
+  if (stale) console.warn('Visitor Worker returned its last verified snapshot');
   await writeFile(new URL('../visitor-history.json', import.meta.url), `${JSON.stringify(history, null, 2)}\n`, 'utf8');
   await writeFile(new URL('../visitor-count.json', import.meta.url), `${JSON.stringify(snapshot)}\n`, 'utf8');
 }

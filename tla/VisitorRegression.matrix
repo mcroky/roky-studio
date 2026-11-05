@@ -1,0 +1,7 @@
+spec VisitorRegression.tla
+check INVARIANTS TypeOK TotalNeverFalls SameDayTodayNeverFalls DateNeverRewinds RejectedKeepsLast
+reach Accepted | TwoDays
+reach Rejected | Regressions
+run SameDay | MaxCount=3 MaxDay=0
+run TwoDays | MaxCount=3 MaxDay=1
+run Regressions | MaxCount=2 MaxDay=1

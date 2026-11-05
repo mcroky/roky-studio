@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildVisitorSnapshot, getVisitorWindows, parseVisitorResponse } from './visitor-count-core.mjs';
+import { buildVisitorSnapshot, getVisitorWindows, parseVisitorResponse, retainVisitorCounts } from './visitor-count-core.mjs';
 
 const history = { method: 'daily', startDate: '2026-10-21', lastArchivedDate: '2026-10-20', archivedVisits: 0 };
 const now = new Date('2026-11-02T09:00:00Z');
@@ -43,4 +43,17 @@ test('invalid or stale Cloudflare data cannot replace a snapshot', () => {
   assert.throws(() => parseVisitorResponse({ data: { viewer: { accounts: [] } } }, windows));
   assert.throws(() => parseVisitorResponse({ data: { viewer: { accounts: [{ today: [], d0: [{ sum: { visits: -1 } }] }] } } }, windows));
   assert.throws(() => getVisitorWindows(history, new Date('2027-01-01T00:00:00Z')), /too stale/);
+});
+
+test('today count may reset on a new Korean date while known UTC days stay retained', () => {
+  const boundary = getVisitorWindows({ method: 'daily', startDate: '2026-10-21', lastArchivedDate: '2026-11-01', archivedVisits: 236 },
+    new Date('2026-11-05T15:10:00Z'));
+  const previous = {
+    snapshot: { date: '2026-11-05', todayVisits: 23 },
+    dailyVisits: { '2026-11-04': 18 },
+  };
+  const retained = retainVisitorCounts(previous, { todayVisits: 0, dailyVisits: { '2026-11-04': 0 } }, boundary);
+  assert.equal(boundary.date, '2026-11-06');
+  assert.equal(retained.todayVisits, 0);
+  assert.equal(retained.dailyVisits['2026-11-04'], 18);
 });

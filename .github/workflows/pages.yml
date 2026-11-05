@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: '22'
       - name: Check visitor count logic
-        run: node --test scripts/visitor-count-core.test.mjs scripts/build-visitor-count.test.mjs worker/index.test.mjs
+        run: node --test scripts/visitor-count-core.test.mjs scripts/build-visitor-count.test.mjs scripts/visitor-counter.test.mjs worker/index.test.mjs
       - name: Deploy visitor API
         id: worker
         if: env.WORKER_DEPLOY_TOKEN != ''

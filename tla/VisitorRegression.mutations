@@ -1,0 +1,29 @@
+mutation accept a lower cumulative count
+detects TotalNeverFalls
+only TwoDays
+- Acceptable == /\ candidateTotal >= storedTotal
++ Acceptable == /\ TRUE
+
+mutation accept a lower same-day count
+detects SameDayTodayNeverFalls
+only SameDay
+-              /\ (candidateDay > storedDay \/ candidateToday >= storedToday)
++              /\ TRUE
+
+mutation accept an older date
+detects DateNeverRewinds
+only TwoDays
+-              /\ candidateDay >= storedDay
++              /\ TRUE
+
+mutation overwrite the saved total after rejecting a query
+detects RejectedKeepsLast
+only Regressions
+-          /\ storedTotal' = storedTotal
++          /\ storedTotal' = candidateTotal
+
+mutation enter an invalid query phase
+detects TypeOK
+only SameDay
+-  /\ phase' = "query"
++  /\ phase' = "invalid"

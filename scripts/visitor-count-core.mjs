@@ -44,6 +44,20 @@ function validVisits(value) {
   return Number.isSafeInteger(value) && value >= 0;
 }
 
+export function retainVisitorCounts(previous, counts, windows) {
+  const dailyVisits = {};
+  for (const { date } of windows.dailyWindows) {
+    const known = previous?.dailyVisits?.[date] ?? 0;
+    const observed = counts.dailyVisits[date] ?? 0;
+    if (!validVisits(known) || !validVisits(observed)) throw new Error('Invalid retained daily visits');
+    const visits = Math.max(known, observed);
+    if (visits > 0) dailyVisits[date] = visits;
+  }
+  const knownToday = previous?.snapshot?.date === windows.date ? previous.snapshot.todayVisits : 0;
+  if (!validVisits(knownToday) || !validVisits(counts.todayVisits)) throw new Error('Invalid retained today visits');
+  return { todayVisits: Math.max(knownToday, counts.todayVisits), dailyVisits };
+}
+
 export function parseVisitorResponse(payload, windows) {
   if (payload?.errors?.length) throw new Error('Cloudflare analytics query failed');
   const accounts = payload?.data?.viewer?.accounts;
