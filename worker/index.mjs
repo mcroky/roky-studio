@@ -1,4 +1,4 @@
-import { buildVisitorSnapshot, getVisitorWindows, parseVisitorResponse, validateHistory } from '../scripts/visitor-count-core.mjs';
+import { buildVisitorSnapshot, getVisitorWindows, parseVisitorResponse, retainVisitorCounts, validateHistory } from '../scripts/visitor-count-core.mjs';
 
 const HOME_ORIGIN = 'https://mcroky.github.io';
 const HISTORY_URL = `${HOME_ORIGIN}/roky-studio/visitor-history.json`;
@@ -57,7 +57,7 @@ async function queryAnalytics(history, env, now) {
     signal: AbortSignal.timeout(15000),
   });
   if (!response.ok) throw new Error(`Cloudflare analytics HTTP ${response.status}`);
-  return buildVisitorSnapshot(history, parseVisitorResponse(await response.json(), windows), windows);
+  return { counts: parseVisitorResponse(await response.json(), windows), windows };
 }
 
 export class VisitorLedger {
@@ -69,8 +69,16 @@ export class VisitorLedger {
 
   async refresh(previous, now) {
     const history = previous?.history ?? await loadInitialHistory();
-    const result = await queryAnalytics(history, this.env, now);
-    const state = { history: result.history, snapshot: result.snapshot };
+    const { counts, windows } = await queryAnalytics(history, this.env, now);
+    const retained = retainVisitorCounts(previous, counts, windows);
+    const result = buildVisitorSnapshot(history, retained, windows);
+    if (previous?.snapshot && (result.snapshot.totalVisits < previous.snapshot.totalVisits ||
+        result.snapshot.date < previous.snapshot.date)) {
+      throw new Error('Analytics snapshot regressed; keeping the last verified snapshot');
+    }
+    const dailyVisits = Object.fromEntries(Object.entries(retained.dailyVisits)
+      .filter(([date]) => date > result.history.lastArchivedDate));
+    const state = { history: result.history, snapshot: result.snapshot, dailyVisits };
     await this.ctx.storage.put('ledger', state);
     return state;
   }

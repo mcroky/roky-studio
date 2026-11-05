@@ -62,7 +62,10 @@
     if (!response.ok) throw new Error('Visitor snapshot unavailable');
     const data = await response.json();
     if (!valid(data)) throw new Error('Invalid visitor snapshot');
-    if (!snapshot || Date.parse(data.updatedAt) >= Date.parse(snapshot.updatedAt)) {
+    const countsDidNotRegress = !snapshot || (data.date >= snapshot.date &&
+      data.totalVisits >= snapshot.totalVisits &&
+      (data.date > snapshot.date || data.todayVisits >= snapshot.todayVisits));
+    if (countsDidNotRegress && (!snapshot || Date.parse(data.updatedAt) >= Date.parse(snapshot.updatedAt))) {
       snapshot = data;
       render();
     }
@@ -74,17 +77,18 @@
     try { await load(apiEndpoint); } catch { /* Keep the latest verified snapshot. */ }
   }
 
-  load(new URL('visitor-count.json', document.baseURI)).catch(() => {});
-  fetch(new URL('visitor-api.json', document.baseURI), { cache: 'no-store' })
-    .then((response) => response.ok ? response.json() : null)
-    .then((config) => {
-      if (!config?.endpoint) return;
-      const endpoint = new URL(config.endpoint);
-      if (endpoint.protocol !== 'https:' || !endpoint.hostname.endsWith('.workers.dev') || endpoint.pathname !== '/visits') return;
-      apiEndpoint = endpoint.href;
-      refreshApi();
-      setInterval(refreshApi, 10 * 60 * 1000);
-      document.addEventListener('visibilitychange', refreshApi);
-    })
-    .catch(() => {});
+  load(new URL('visitor-count.json', document.baseURI)).catch(() => {}).finally(() => {
+    fetch(new URL('visitor-api.json', document.baseURI), { cache: 'no-store' })
+      .then((response) => response.ok ? response.json() : null)
+      .then((config) => {
+        if (!config?.endpoint) return;
+        const endpoint = new URL(config.endpoint);
+        if (endpoint.protocol !== 'https:' || !endpoint.hostname.endsWith('.workers.dev') || endpoint.pathname !== '/visits') return;
+        apiEndpoint = endpoint.href;
+        refreshApi();
+        setInterval(refreshApi, 10 * 60 * 1000);
+        document.addEventListener('visibilitychange', refreshApi);
+      })
+      .catch(() => {});
+  });
 })();
