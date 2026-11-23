@@ -9,6 +9,11 @@ const originalFetch = globalThis.fetch;
 const originalAccount = process.env.CF_ACCOUNT_ID;
 const originalToken = process.env.CF_ANALYTICS_TOKEN;
 
+// The archived history and the expected analytics query describe this November window.
+test.beforeEach((context) => {
+  context.mock.timers.enable({ apis: ['Date'], now: new Date('2026-11-02T09:00:00Z') });
+});
+
 test('the deployed snapshot contains validated counts and no API secret', async () => {
   process.env.CF_ACCOUNT_ID = 'test-account';
   process.env.CF_ANALYTICS_TOKEN = 'test-secret-never-publish';
