@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ed">
+  <meta name="description" content="로키스튜디오의 냉장고 두 끼 준비 페이지입니다.">
+  <title>냉장고 두 끼 · 앱 준비</title>
+  <link rel="stylesheet" href="./launch.css">
+  <script src="./launch.js" type="module"></script>
+</head>
+<body>
+  <header class="wrap"><a class="back" href="../#fridge-two-meals">← 로키스튜디오로 돌아가기</a></header>
+  <main class="wrap">
+    <section class="card" aria-labelledby="title">
+      <div class="content">
+        <h1 id="title">냉장고 두 끼를<br>열고 있어요</h1>
+        <p class="intro">오랜만에 열면 준비에 약 1분이 걸릴 수 있어요. 앱이 준비되면 자동으로 이동해요.</p>
+        <div class="connection" id="connection" hidden>
+          <span id="activity" class="activity" aria-hidden="true"></span>
+          <p id="status" role="status">앱을 깨우는 중이에요.</p>
+        </div>
+        <button id="retry" type="button" hidden>다시 확인하기</button>
+        <a class="direct" id="direct" href="https://fridge-two-meals.onrender.com/">앱 직접 열기</a>
+        <noscript><p class="no-script">자동 이동을 사용하려면 JavaScript를 켜거나 앱을 직접 열어주세요.</p></noscript>
+      </div>
+      <img src="../assets/fridge-two-meals.jpg" alt="애호박 달걀덮밥과 애호박 두부된장국" width="1020" height="680">
+    </section>
+  </main>
+  <footer class="wrap">Roky Studio</footer>
+</body>
+</html>
